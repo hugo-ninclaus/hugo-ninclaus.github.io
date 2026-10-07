@@ -221,6 +221,12 @@
     align-items: stretch;
 }
 
+/* sans ça, l'image prend la hauteur du texte et s'élargit au-delà de sa colonne */
+.carte.large .couverture {
+    width: 100%;
+    align-self: center;
+}
+
 .carte.large .carte-texte {
     justify-content: center;
     padding: 30px 30px 30px 40px;
