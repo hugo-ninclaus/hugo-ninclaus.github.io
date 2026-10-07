@@ -1,7 +1,7 @@
 # Suivi du chantier — portfolio
 
 > Fichier tenu à jour pendant le travail, au cas où la session s'arrête.
-> Dernière mise à jour : 7 oct. 2026, étape 7/8 (site complet, en test).
+> Dernière mise à jour : 7 oct. 2026, 8/8, site terminé et testé.
 
 ## Ce que tu as demandé
 
@@ -44,7 +44,8 @@ Version précédente (1re version, avant refonte) : commit `43b4ca6` (`git log`)
 - [x] `projet.html`, `404.html`
 - [x] Mettre à jour `README.md` et les redirections de `docker/nginx.conf`
 - [x] Test ordi (captures headless) : accueil OK, frise OK au défilement
-- [ ] Test mobile + pages projet, puis infos projets demandées à Hugo
+- [x] Test mobile + pages projet (captures headless) : OK
+- [ ] En attente : infos sur les projets (voir la liste envoyée dans la conversation)
 - [x] Commit local de la refonte
 
 ## Idée directrice

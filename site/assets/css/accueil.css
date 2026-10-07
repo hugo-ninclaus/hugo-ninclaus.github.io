@@ -790,6 +790,9 @@ html.capot .tuile.accent {
     .interets li {
         min-height: 130px;
     }
+    .interets li:last-child:nth-child(odd) {
+        grid-column: span 2;
+    }
 
     /* la frise passe sur une colonne, le rail à gauche */
     .frise {
