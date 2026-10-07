@@ -1,0 +1,14 @@
+# Lancer le site en local :
+#   docker compose up -d --build      ->  http://localhost:8080
+#   docker compose down
+#
+# Pour la mise en ligne avec le domaine, voir compose.domaine.yml.
+
+services:
+  portfolio:
+    build: .
+    image: portfolio
+    container_name: portfolio
+    restart: unless-stopped
+    ports:
+      - "8080:80"

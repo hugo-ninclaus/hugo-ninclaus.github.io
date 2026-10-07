@@ -1,0 +1,41 @@
+/*
+   Réglages du site.
+   Toute la direction artistique passe par ici : changer une couleur
+   ou une police dans ce fichier la change partout.
+*/
+
+:root {
+    /* ---------- Couleurs ---------- */
+    --bg: #000;
+    --tile: #111113;          /* fond des tuiles et du terminal */
+    --tile-2: #1a1a1d;        /* tuile au survol, fond des <code> */
+    --line: #262629;          /* bordures, séparateurs */
+    --text: #f5f5f7;
+    --text-2: #d2d2d7;        /* texte secondaire clair (menu, terminal) */
+    --grey: #86868b;          /* paragraphes */
+    --dim: #6e6e73;           /* 2e ligne des titres */
+
+    --accent: #2997ff;
+    --accent-hover: #0077ed;
+    --ok: #30d158;            /* vert du terminal */
+
+    /* tuile mise en avant (classe .accent) */
+    --accent-tile-from: #0a3a6b;
+    --accent-tile-to: #0b1a2e;
+    --accent-tile-label: #8ec5ff;
+    --accent-tile-text: #b9dcff;
+
+    /* ---------- Polices ---------- */
+    --font: "Inter", -apple-system, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+    --mono: "JetBrains Mono", "SF Mono", Consolas, monospace;
+
+    /* ---------- Mise en page ---------- */
+    --largeur: 1080px;        /* largeur max du contenu */
+    --marge: 22px;            /* marge sur les côtés */
+    --nav-h: 52px;
+    --espace-section: 140px;  /* espace au-dessus de chaque section */
+    --rayon: 24px;            /* arrondi des tuiles */
+
+    /* ---------- Animations ---------- */
+    --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}

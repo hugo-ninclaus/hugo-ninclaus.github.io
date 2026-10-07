@@ -1,0 +1,9 @@
+{
+    // "Go Live" (extension Live Server) sert directement le dossier site/
+    "liveServer.settings.root": "/site",
+    "liveServer.settings.port": 5500,
+
+    "files.associations": {
+        "Caddyfile": "caddyfile"
+    }
+}

@@ -1,0 +1,10 @@
+.DS_Store
+Thumbs.db
+*.log
+.env
+node_modules/
+
+# réglages VS Code perso (les recommandations d'extensions restent partagées)
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json

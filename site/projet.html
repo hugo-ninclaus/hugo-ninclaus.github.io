@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projet · Hugo Ninclaus</title>
+<meta name="description" content="Un projet de Hugo Ninclaus.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<link rel="stylesheet" href="assets/css/variables.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/projet.css">
+<script src="assets/js/commun.js"></script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="index.html">Hugo Ninclaus</a>
+    <nav>
+      <a class="actif" href="index.html#projets">Projets</a>
+      <a href="index.html#parcours">Parcours</a>
+      <a href="index.html#competences">Compétences</a>
+      <a href="index.html#contact">Contact</a>
+      <a class="nav-cta" href="assets/docs/CV_NINCLAUS_Hugo.pdf" target="_blank" rel="noopener">CV</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Rempli par assets/js/projet.js à partir de contenu/projets.js -->
+<main id="projet" class="projet"></main>
+
+<footer>
+  <div class="foot-inner">
+    <span>Hugo Ninclaus · <span data-annee>2026</span></span>
+    <span>Villemomble · <span data-heure>Paris</span></span>
+    <span class="foot-liens">
+      <a href="mailto:hugo.ninclaus@outlook.fr">Mail</a>
+      <a href="https://www.linkedin.com/in/hugo-ninclaus/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/hugo-ninclaus" target="_blank" rel="noopener">GitHub</a>
+    </span>
+  </div>
+</footer>
+
+<script src="contenu/projets.js"></script>
+<script src="assets/js/projet.js"></script>
+</body>
+</html>

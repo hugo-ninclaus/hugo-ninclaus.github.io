@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hugo Ninclaus</title>
+<meta name="description" content="Hugo Ninclaus, étudiant en Bachelor Informatique & Cybersécurité à l'ESILV. Projets en C, réseau, web et électronique.">
+<meta name="theme-color" content="#000000">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hugo Ninclaus">
+<meta property="og:description" content="Étudiant en Informatique & Cybersécurité à l'ESILV. Projets, parcours, contact.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<link rel="stylesheet" href="assets/css/variables.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/accueil.css">
+<script src="assets/js/commun.js"></script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="#">Hugo Ninclaus</a>
+    <nav>
+      <a href="#projets">Projets</a>
+      <a href="#parcours">Parcours</a>
+      <a href="#competences">Compétences</a>
+      <a href="#contact">Contact</a>
+      <a class="nav-cta" href="assets/docs/CV_NINCLAUS_Hugo.pdf" target="_blank" rel="noopener">CV</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ Hero ============ -->
+  <section class="hero">
+    <p class="eyebrow reveal">Informatique &amp; Cybersécurité · ESILV</p>
+    <h1 class="reveal">Hugo Ninclaus.<br><span class="dim">Étudiant en cyber.</span></h1>
+    <p class="sub reveal">En deuxième année de bachelor à La Défense. Ce qui m'intéresse, c'est ce qui se passe sous le capot&nbsp;: un serveur web écrit en C, un vieux PC devenu serveur Linux, un parking qui guide les voitures avec des LED.</p>
+    <div class="cta reveal">
+      <a class="pill" href="#projets">Voir les projets</a>
+      <a class="link" href="assets/docs/CV_NINCLAUS_Hugo.pdf" target="_blank" rel="noopener">Télécharger le CV <span>›</span></a>
+    </div>
+  </section>
+
+  <!-- ============ Présentation (terminal) ============ -->
+  <section id="moi" class="block">
+    <h2 class="reveal">En deux mots.<br><span class="dim">Ou en quelques commandes.</span></h2>
+    <div class="terminal reveal">
+      <div class="term-bar"><i></i><i></i><i></i><span>hugo@esilv: ~</span></div>
+<pre><span class="prompt">$</span> whoami
+hugo ninclaus
+
+<span class="prompt">$</span> cat formation.txt
+Bachelor Informatique &amp; Cybersécurité · ESILV · 2e année
+
+<span class="prompt">$</span> ls projets/
+<span class="ok" id="ls-projets">bhttpd/  miniserveur/  monster/  neopark/  war-arenai/  pixel-mate/</span>
+
+<span class="prompt">$</span> cat ~/.plan
+<span class="key">Comprendre le réseau jusqu'au dernier paquet.</span>
+<span class="key">Trouver un stage pour l'été 2027.</span>
+
+<span class="prompt">$</span> <span class="curseur"></span></pre>
+    </div>
+  </section>
+
+  <!-- ============ Chiffres ============ -->
+  <section class="block numbers">
+    <div class="number reveal"><strong>54</strong><span>lignes de C pour<br>un serveur web</span></div>
+    <div class="number reveal"><strong>3</strong><span>IA branchées<br>dans une seule appli</span></div>
+    <div class="number reveal"><strong>1</strong><span>vieux PC devenu<br>serveur Linux</span></div>
+  </section>
+
+  <!-- ============ Projets ============
+       Les tuiles sont générées depuis contenu/projets.js -->
+  <section id="projets" class="block">
+    <h2 class="reveal">Des projets.<br><span class="dim">Finis, ou presque.</span></h2>
+    <div class="bento" id="grille-projets"></div>
+    <noscript><p class="dim">Activez JavaScript pour voir les projets.</p></noscript>
+  </section>
+
+  <!-- ============ Parcours ============ -->
+  <section id="parcours" class="block">
+    <h2 class="reveal">Parcours.<br><span class="dim">Jusqu'ici.</span></h2>
+    <ol class="steps">
+      <li class="reveal">
+        <span class="n">2025 — 2028</span>
+        <h3>Bachelor Informatique &amp; Cybersécurité<small>ESILV · La Défense</small></h3>
+        <p>En deuxième année. Programmation système et réseaux, systèmes embarqués, NoSQL, mécatronique.</p>
+      </li>
+      <li class="reveal">
+        <span class="n">2024 — 2025</span>
+        <h3>Baccalauréat général<small>Lycée Georges Clemenceau · Villemomble</small></h3>
+        <p>Spécialités NSI et mathématiques, option maths expertes. DNL physique-chimie.</p>
+      </li>
+      <li class="reveal">
+        <span class="n">2023 — 2024</span>
+        <h3>Barista<small>Marché de l'Époque · Villemomble</small></h3>
+        <p>Six mois en parallèle du lycée. Ça apprend à rester calme quand la file d'attente déborde.</p>
+      </li>
+      <li class="reveal">
+        <span class="n">2022</span>
+        <h3>Stage de 3e, support technique<small>IEDOM · Paris</small></h3>
+        <p>Une semaine au support informatique de premier niveau. Mon premier pied dans le métier.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ============ Compétences ============ -->
+  <section id="competences" class="block">
+    <h2 class="reveal">La boîte à outils.<br><span class="dim">Elle grossit.</span></h2>
+    <div class="bento competences">
+      <article class="tile wide reveal">
+        <p class="tile-label">Langages</p>
+        <h3>Ce que j'écris.</h3>
+        <ul class="tags">
+          <li>C</li><li>Python</li><li>JavaScript</li><li>HTML</li><li>CSS</li><li>SQL</li>
+        </ul>
+      </article>
+      <article class="tile reveal">
+        <p class="tile-label">Langues</p>
+        <h3>Ce que je parle.</h3>
+        <dl class="langues">
+          <dt>Français</dt><dd>natif</dd>
+          <dt>Anglais</dt><dd>B2 · TOEFL 557</dd>
+          <dt>Allemand</dt><dd>A2+</dd>
+        </dl>
+      </article>
+      <article class="tile reveal">
+        <p class="tile-label">Matériel</p>
+        <h3>Ce que je câble.</h3>
+        <ul class="tags">
+          <li>Arduino</li><li>Tinkercad</li><li>SolidWorks</li>
+        </ul>
+      </article>
+      <article class="tile wide accent reveal">
+        <p class="tile-label">Système &amp; réseau</p>
+        <h3>Ce que j'administre.</h3>
+        <ul class="tags">
+          <li>Linux</li><li>Nginx</li><li>SSH / SCP</li><li>Sockets TCP</li><li>Git</li><li>Docker</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ Hors écran ============ -->
+  <section class="block">
+    <h2 class="reveal">Hors écran.<br><span class="dim">Ça compte aussi.</span></h2>
+    <ul class="interets reveal">
+      <li>Volley-ball</li>
+      <li>Lego</li>
+      <li>Sport auto</li>
+      <li>Cinéma</li>
+      <li>Musique</li>
+    </ul>
+    <p class="interets-note reveal">Le volley m'a appris l'essentiel du travail en équipe&nbsp;: on ne marque jamais un point tout seul, et c'est quand ça va mal qu'il faut parler.</p>
+  </section>
+
+  <!-- ============ Contact ============ -->
+  <section id="contact" class="block final reveal">
+    <h2>Un stage, un projet&nbsp;?<br><span class="dim">Écrivez-moi.</span></h2>
+    <div class="cta">
+      <a class="pill big" href="mailto:hugo.ninclaus@outlook.fr">M'envoyer un mail</a>
+      <a class="link" href="https://www.linkedin.com/in/hugo-ninclaus/" target="_blank" rel="noopener">LinkedIn <span>›</span></a>
+      <a class="link" href="https://github.com/hugo-ninclaus" target="_blank" rel="noopener">GitHub <span>›</span></a>
+    </div>
+    <p class="mail">hugo.ninclaus@outlook.fr</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <span>Hugo Ninclaus · <span data-annee>2026</span></span>
+    <span>Villemomble · <span data-heure>Paris</span></span>
+    <span>Codé à la main, sans framework.</span>
+  </div>
+</footer>
+
+<script src="contenu/projets.js"></script>
+<script src="assets/js/accueil.js"></script>
+</body>
+</html>

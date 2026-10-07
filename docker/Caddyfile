@@ -1,0 +1,10 @@
+# Caddy : HTTPS automatique devant le portfolio.
+# Le domaine vient de la variable DOMAINE (voir compose.domaine.yml).
+
+{$DOMAINE} {
+	reverse_proxy portfolio:80
+}
+
+www.{$DOMAINE} {
+	redir https://{$DOMAINE}{uri} permanent
+}

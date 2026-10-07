@@ -1,0 +1,329 @@
+/*
+   Page d'accueil (index.html), section par section.
+*/
+
+/* ---------- Hero ---------- */
+
+.hero {
+    min-height: calc(100vh - var(--nav-h));
+    min-height: calc(100svh - var(--nav-h));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 0;
+}
+
+.hero h1 {
+    font-size: clamp(3.2rem, 9.5vw, 7.6rem);
+    font-weight: 800;
+    line-height: 0.98;
+    letter-spacing: -0.05em;
+}
+
+.sub {
+    max-width: 640px;
+    margin: 32px auto 0;
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    line-height: 1.45;
+    color: var(--grey);
+}
+
+/* ---------- Chiffres ---------- */
+
+.numbers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    text-align: center;
+}
+
+.number strong {
+    display: block;
+    font-size: clamp(5rem, 13vw, 9.5rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.06em;
+    background: linear-gradient(180deg, #fff 30%, #4a4a4f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.number span {
+    display: block;
+    margin-top: 12px;
+    font-size: 1.1rem;
+    color: var(--grey);
+}
+
+/* ---------- Bento (projets, compétences) ---------- */
+
+.bento {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-flow: dense;     /* bouche les trous si on ajoute/retire un projet */
+    gap: 16px;
+}
+
+.tile {
+    position: relative;
+    background: var(--tile);
+    border-radius: var(--rayon);
+    padding: 36px 34px 38px;
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: var(--text);
+    transition: background 0.3s;
+}
+
+a.tile:hover {
+    background: var(--tile-2);
+}
+
+.tile.wide {
+    grid-column: span 2;
+}
+
+.tile.accent {
+    background: linear-gradient(160deg, var(--accent-tile-from), var(--accent-tile-to) 70%);
+}
+
+.tile-label {
+    margin: 0 0 auto;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--grey);
+}
+
+.tile.accent .tile-label {
+    color: var(--accent-tile-label);
+}
+
+.tile h3 {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    line-height: 1.1;
+    margin: 40px 0 10px;
+}
+
+.tile p.resume {
+    margin: 0;
+    max-width: 520px;
+    font-size: 1.02rem;
+    color: var(--grey);
+}
+
+.tile.accent p.resume {
+    color: var(--accent-tile-text);
+}
+
+.tile .tags {
+    margin-top: 20px;
+}
+
+.tile.accent .tags li {
+    border-color: rgba(142, 197, 255, 0.25);
+    color: var(--accent-tile-text);
+}
+
+/* petite flèche en haut à droite des tuiles cliquables */
+a.tile::after {
+    content: "›";
+    position: absolute;
+    top: 28px;
+    right: 32px;
+    font-size: 1.6rem;
+    line-height: 1;
+    color: var(--dim);
+    transition: transform 0.2s, color 0.2s;
+}
+
+a.tile:hover::after {
+    color: var(--text);
+    transform: translateX(4px);
+}
+
+/* ---------- Parcours ---------- */
+
+.steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--line);
+}
+
+.steps li {
+    display: grid;
+    grid-template-columns: 150px 1fr 1.25fr;
+    align-items: baseline;
+    gap: 20px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.steps .n {
+    font-family: var(--mono);
+    font-size: 0.95rem;
+    color: var(--dim);
+    transition: color 0.2s;
+}
+
+.steps h3 {
+    font-size: 1.3rem;
+    letter-spacing: -0.02em;
+}
+
+.steps h3 small {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    color: var(--grey);
+}
+
+.steps p {
+    margin: 0;
+    font-size: 1.05rem;
+    color: var(--grey);
+}
+
+.steps li:hover .n {
+    color: var(--accent);
+}
+
+/* ---------- Compétences ---------- */
+
+.competences .tile {
+    min-height: 220px;
+}
+
+.competences .tile h3 {
+    margin-top: 32px;
+    margin-bottom: 18px;
+    font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+}
+
+.competences .tags li {
+    font-size: 0.85rem;
+    padding: 5px 13px;
+}
+
+.langues {
+    margin: 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 6px 18px;
+    font-size: 1.02rem;
+}
+
+.langues dt {
+    color: var(--text);
+}
+
+.langues dd {
+    margin: 0;
+    color: var(--grey);
+}
+
+/* ---------- Hors écran ---------- */
+
+.interets {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 0.5em;
+    font-size: clamp(2rem, 5.5vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.15;
+}
+
+.interets li {
+    color: var(--dim);
+    transition: color 0.3s;
+}
+
+.interets li:hover {
+    color: var(--text);
+}
+
+.interets li:not(:last-child)::after {
+    content: " /";
+    color: var(--line);
+}
+
+.interets-note {
+    max-width: 620px;
+    margin: 40px 0 0;
+    font-size: 1.1rem;
+    color: var(--grey);
+}
+
+/* ---------- Contact ---------- */
+
+.final {
+    text-align: center;
+}
+
+.final h2 {
+    margin-bottom: 44px;
+}
+
+.final .cta {
+    margin-top: 0;
+}
+
+.final .mail {
+    margin: 26px 0 0;
+    font-family: var(--mono);
+    font-size: 0.95rem;
+    color: var(--grey);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 860px) {
+    .bento {
+        grid-template-columns: 1fr 1fr;
+    }
+    .steps li {
+        grid-template-columns: 110px 1fr;
+    }
+    .steps p {
+        grid-column: 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .numbers,
+    .bento {
+        grid-template-columns: 1fr;
+    }
+    .numbers {
+        gap: 56px;
+    }
+    .tile.wide {
+        grid-column: auto;
+    }
+    .tile {
+        min-height: 220px;
+        padding: 30px 26px 32px;
+    }
+    a.tile::after {
+        top: 24px;
+        right: 24px;
+    }
+    .steps li {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    .steps p {
+        grid-column: auto;
+    }
+}
