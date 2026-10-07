@@ -2,40 +2,87 @@
    Réglages du site.
    Toute la direction artistique passe par ici : changer une couleur
    ou une police dans ce fichier la change partout.
+
+   Trois ambiances :
+     :root         sombre, par défaut
+     .clair        sections sur fond clair (ex. "À propos")
+     html.capot    le mode "capot ouvert" (bouton </> dans la barre du haut)
 */
 
 :root {
     /* ---------- Couleurs ---------- */
     --bg: #000;
-    --tile: #111113;          /* fond des tuiles et du terminal */
-    --tile-2: #1a1a1d;        /* tuile au survol, fond des <code> */
+    --tile: #111113;          /* fond des cartes */
+    --tile-2: #1a1a1d;        /* carte au survol, fond des <code> */
     --line: #262629;          /* bordures, séparateurs */
+    --line-2: #3a3a3e;
     --text: #f5f5f7;
-    --text-2: #d2d2d7;        /* texte secondaire clair (menu, terminal) */
+    --text-2: #d2d2d7;        /* texte secondaire clair */
     --grey: #86868b;          /* paragraphes */
     --dim: #6e6e73;           /* 2e ligne des titres */
 
     --accent: #2997ff;
     --accent-hover: #0077ed;
-    --ok: #30d158;            /* vert du terminal */
+    --accent-doux: rgba(41, 151, 255, 0.14);
+    --cyan: #22d3ee;          /* l'accent de l'ancien portfolio, gardé pour le mode capot */
+    --ok: #30d158;
+    --violet: #a78bfa;
 
-    /* tuile mise en avant (classe .accent) */
-    --accent-tile-from: #0a3a6b;
-    --accent-tile-to: #0b1a2e;
-    --accent-tile-label: #8ec5ff;
-    --accent-tile-text: #b9dcff;
+    --nav-bg: rgba(0, 0, 0, 0.72);
+    --nav-line: rgba(255, 255, 255, 0.08);
+    --code-bg: #0e0e10;
 
     /* ---------- Polices ---------- */
     --font: "Inter", -apple-system, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
     --mono: "JetBrains Mono", "SF Mono", Consolas, monospace;
 
     /* ---------- Mise en page ---------- */
-    --largeur: 1080px;        /* largeur max du contenu */
+    --largeur: 1120px;        /* largeur max du contenu */
     --marge: 22px;            /* marge sur les côtés */
     --nav-h: 52px;
-    --espace-section: 140px;  /* espace au-dessus de chaque section */
-    --rayon: 24px;            /* arrondi des tuiles */
+    --espace-section: 160px;  /* espace au-dessus de chaque section */
+    --rayon: 28px;            /* arrondi des grandes cartes */
+    --rayon-petit: 18px;
 
     /* ---------- Animations ---------- */
     --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* ---------- Sections claires ---------- */
+
+.clair {
+    --bg: #f5f5f7;
+    --tile: #fff;
+    --tile-2: #fafafc;
+    --line: #d2d2d7;
+    --line-2: #c7c7cc;
+    --text: #1d1d1f;
+    --text-2: #424245;
+    --grey: #6e6e73;
+    --dim: #86868b;
+    --accent: #0071e3;
+    --accent-hover: #0077ed;
+    --accent-doux: rgba(0, 113, 227, 0.1);
+}
+
+/* ---------- Mode capot ---------- */
+
+html.capot,
+html.capot .clair {
+    --bg: #06111f;
+    --tile: rgba(34, 211, 238, 0.04);
+    --tile-2: rgba(34, 211, 238, 0.08);
+    --line: rgba(34, 211, 238, 0.22);
+    --line-2: rgba(34, 211, 238, 0.4);
+    --text: #e6fbff;
+    --text-2: #b9e6f2;
+    --grey: #7fb3c4;
+    --dim: #4f7d8c;
+    --accent: #22d3ee;
+    --accent-hover: #67e8f9;
+    --accent-doux: rgba(34, 211, 238, 0.12);
+    --nav-bg: rgba(6, 17, 31, 0.8);
+    --nav-line: rgba(34, 211, 238, 0.25);
+    --code-bg: #04101c;
+    --font: var(--mono);
 }

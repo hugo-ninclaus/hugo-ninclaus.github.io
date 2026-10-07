@@ -13,22 +13,26 @@ Direction artistique reprise du site `bhttpd` (prog sys & réseaux, A2).
 ```
 portfolio/
 ├── site/                     ← TOUT le site est ici (c'est ce qui est publié)
-│   ├── index.html            page d'accueil
+│   ├── index.html            page d'accueil (accueil, projets, à propos, parcours, compétences, contact)
 │   ├── projet.html           modèle de page projet (projet.html?p=<id>)
 │   ├── 404.html              page d'erreur
 │   ├── contenu/
-│   │   └── projets.js        ← LES PROJETS (texte, images, stack, liens)
+│   │   └── projets.js        ← LES PROJETS (texte, images, stack, code « sous le capot »)
 │   └── assets/
 │       ├── css/
 │       │   ├── variables.css ← couleurs, polices, tailles (la DA en un fichier)
-│       │   ├── base.css      nav, titres, boutons, terminal, pied de page
+│       │   ├── base.css      nav, titres, boutons, fenêtre de code, pied de page
+│       │   ├── couvertures.css  couvertures des projets + effet « capot »
 │       │   ├── accueil.css   sections de la page d'accueil
-│       │   └── projet.css    page projet
+│       │   ├── projet.css    page projet (galerie, visionneuse…)
+│       │   └── capot.css     le mode capot (bouton </>)
 │       ├── js/
-│       │   ├── commun.js     animations au défilement, heure, année
-│       │   ├── accueil.js    construit les tuiles de projets
+│       │   ├── commun.js     animations, menu mobile, mode capot, heure, copier l'email
+│       │   ├── couvertures.js  dessins SVG des projets (parking, serveur)
+│       │   ├── code.js       affichage et coloration du code « sous le capot »
+│       │   ├── accueil.js    vitrine, cartes de projets, frise du parcours
 │       │   └── projet.js     construit la page d'un projet
-│       ├── img/              favicon + captures des projets
+│       ├── img/              favicon, logo ESILV, captures des projets
 │       └── docs/             CV en PDF
 │
 ├── .github/workflows/pages.yml   publication automatique sur GitHub Pages
@@ -36,7 +40,14 @@ portfolio/
 └── docker/                       config nginx + Caddy (HTTPS)
 ```
 
----
+### L'idée « sous le capot »
+
+- Au survol d'une carte de projet, une ligne de scan révèle ce qu'il y a derrière : le vrai code, le montage, les commandes.
+  Sur téléphone, c'est le bouton « Sous le capot » de la carte.
+- Le bouton `</>` de la barre du haut (ou « Ouvrir le capot » en bas de page) passe **tout le site** en plan technique :
+  grille, contour de chaque bloc avec sa taille réelle, et un panneau avec les vraies mesures de la page
+  (poids, nombre de requêtes, temps de chargement). `Échap` pour refermer.
+- Pour qu'un bloc soit étiqueté en mode capot, il suffit de lui ajouter l'attribut `data-capot`.
 
 ## Voir le site en local
 
@@ -59,6 +70,8 @@ python3 -m http.server 5500 --directory site
 | Je veux…                            | Fichier                                   |
 |-------------------------------------|-------------------------------------------|
 | ajouter / modifier / retirer un projet | `site/contenu/projets.js`              |
+| changer le code « sous le capot » d'un projet | champ `capot` dans `site/contenu/projets.js` |
+| mettre une image comme couverture   | `couverture: { image: "assets/img/projets/x.jpg" }` dans `projets.js` |
 | changer les couleurs ou les polices | `site/assets/css/variables.css`           |
 | changer un texte de l'accueil       | `site/index.html` (chaque section est commentée) |
 | changer le parcours ou les compétences | `site/index.html`, sections *Parcours* et *Compétences* |
@@ -72,11 +85,10 @@ python3 -m http.server 5500 --directory site
 3. Changer l'`id` (court, sans espace ni accent : `mon-projet`), puis remplir les champs.
 4. Mettre les images dans `site/assets/img/projets/` et les référencer dans `images`.
 
-C'est tout : la tuile apparaît sur l'accueil, la page `projet.html?p=mon-projet` existe,
-le `ls projets/` du terminal et le lien « Projet suivant » se mettent à jour.
+C'est tout : la carte apparaît sur l'accueil (et dans la vitrine du haut si c'est un des 3 premiers),
+la page `projet.html?p=mon-projet` existe, et les liens « précédent / suivant » se mettent à jour.
 
-Pour la taille de la tuile : `tuile: "wide"` (2 colonnes), `"accent"` (bleue) ou `"wide accent"`.
-La grille se réarrange toute seule s'il y a des trous.
+Pour une grande carte (pleine largeur, image à gauche et texte à droite) : `large: true`.
 
 ### Animer un nouvel élément
 
@@ -161,4 +173,6 @@ DOMAINE=ninclaus.fr docker compose -f compose.yml -f compose.domaine.yml up -d -
 - Le CV dans `site/assets/docs/` est celui de mars 2026 (« première année ») : à remplacer par la version à jour.
 - Email affiché : `hugo.ninclaus@outlook.fr` (celui de l'ancien portfolio). Le CV indique `outlook.com` : garder le bon.
 - Terminal de l'accueil, ligne `cat ~/.plan` : objectifs à ajuster (`site/index.html`).
-- bhttpd, Miniserveur, War ArenAI, Pixel Mate n'ont pas de lien vers le code : ajouter `liens` dans `projets.js` si les dépôts deviennent publics.
+- Téléphone affiché dans la section Contact (comme sur l'ancien site) : à retirer de `site/index.html` si besoin.
+- Lien `monster.ninclaus.fr` en commentaire dans `projets.js` (le site ne répond plus) : à réactiver quand il revient.
+- Pastille « Disponible pour un stage » en haut de l'accueil : à adapter.

@@ -3,187 +3,298 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hugo Ninclaus</title>
-<meta name="description" content="Hugo Ninclaus, étudiant en Bachelor Informatique & Cybersécurité à l'ESILV. Projets en C, réseau, web et électronique.">
+<title>Hugo Ninclaus · Portfolio</title>
+<meta name="description" content="Hugo Ninclaus, étudiant en Bachelor Informatique & Cybersécurité à l'ESILV. Projets, parcours, compétences et contact.">
 <meta name="theme-color" content="#000000">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hugo Ninclaus">
-<meta property="og:description" content="Étudiant en Informatique & Cybersécurité à l'ESILV. Projets, parcours, contact.">
+<meta property="og:title" content="Hugo Ninclaus · Portfolio">
+<meta property="og:description" content="Étudiant en Bachelor Informatique & Cybersécurité à l'ESILV.">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500&display=swap">
 
 <link rel="stylesheet" href="assets/css/variables.css">
 <link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/couvertures.css">
 <link rel="stylesheet" href="assets/css/accueil.css">
+<link rel="stylesheet" href="assets/css/capot.css">
 <script src="assets/js/commun.js"></script>
 </head>
 <body>
 
-<header class="nav">
+<a class="evitement" href="#contenu">Aller au contenu</a>
+
+<!-- ============ Barre du haut ============ -->
+<header class="nav" data-capot>
   <div class="nav-inner">
-    <a class="logo" href="#">Hugo Ninclaus</a>
-    <nav>
+    <a class="logo" href="#accueil">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 10l6 6-6 6" stroke="var(--accent)"/><path d="M17 22h7" stroke="var(--text)"/>
+        </svg>
+      </span>
+      Hugo Ninclaus
+    </a>
+    <nav class="nav-liens" id="menu" aria-label="Navigation principale">
+      <a href="#accueil">Accueil</a>
       <a href="#projets">Projets</a>
+      <a href="#apropos">À propos</a>
       <a href="#parcours">Parcours</a>
-      <a href="#competences">Compétences</a>
       <a href="#contact">Contact</a>
-      <a class="nav-cta" href="assets/docs/CV_NINCLAUS_Hugo.pdf" target="_blank" rel="noopener">CV</a>
     </nav>
+    <div class="nav-actions">
+      <button class="btn-capot" type="button" data-capot-toggle aria-pressed="false" title="Ouvrir le capot du site">&lt;/&gt;</button>
+      <a class="nav-cta" href="assets/docs/CV_NINCLAUS_Hugo.pdf" target="_blank" rel="noopener">CV</a>
+      <button class="burger" type="button" aria-label="Menu" aria-controls="menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
   </div>
 </header>
 
-<main>
+<main id="contenu">
 
-  <!-- ============ Hero ============ -->
-  <section class="hero">
-    <p class="eyebrow reveal">Informatique &amp; Cybersécurité · ESILV</p>
-    <h1 class="reveal">Hugo Ninclaus.<br><span class="dim">Étudiant en cyber.</span></h1>
-    <p class="sub reveal">En deuxième année de bachelor à La Défense. Ce qui m'intéresse, c'est ce qui se passe sous le capot&nbsp;: un serveur web écrit en C, un vieux PC devenu serveur Linux, un parking qui guide les voitures avec des LED.</p>
-    <div class="cta reveal">
-      <a class="pill" href="#projets">Voir les projets</a>
-      <a class="link" href="assets/docs/CV_NINCLAUS_Hugo.pdf" target="_blank" rel="noopener">Télécharger le CV <span>›</span></a>
+  <!-- ============ Accueil ============ -->
+  <section class="hero" id="accueil" data-capot>
+    <div class="contenu">
+      <p class="statut reveal"><span class="point"></span>Disponible pour un stage</p>
+      <p class="eyebrow reveal">Hugo Ninclaus · ESILV</p>
+      <h1 class="reveal">Étudiant.<br><span class="dim">Travailleur &amp; rigoureux.</span></h1>
+      <p class="sub reveal">En Bachelor Informatique &amp; Cybersécurité, curieux et passionné d'informatique. J'aime comprendre ce qu'il y a sous le capot et m'investir dans des projets concrets.</p>
+      <div class="cta reveal">
+        <a class="pill" href="#projets">Voir mes projets</a>
+        <a class="lien" href="#contact">Me contacter <span>›</span></a>
+      </div>
     </div>
-  </section>
-
-  <!-- ============ Présentation (terminal) ============ -->
-  <section id="moi" class="block">
-    <h2 class="reveal">En deux mots.<br><span class="dim">Ou en quelques commandes.</span></h2>
-    <div class="terminal reveal">
-      <div class="term-bar"><i></i><i></i><i></i><span>hugo@esilv: ~</span></div>
-<pre><span class="prompt">$</span> whoami
-hugo ninclaus
-
-<span class="prompt">$</span> cat formation.txt
-Bachelor Informatique &amp; Cybersécurité · ESILV · 2e année
-
-<span class="prompt">$</span> ls projets/
-<span class="ok" id="ls-projets">bhttpd/  miniserveur/  monster/  neopark/  war-arenai/  pixel-mate/</span>
-
-<span class="prompt">$</span> cat ~/.plan
-<span class="key">Comprendre le réseau jusqu'au dernier paquet.</span>
-<span class="key">Trouver un stage pour l'été 2027.</span>
-
-<span class="prompt">$</span> <span class="curseur"></span></pre>
-    </div>
-  </section>
-
-  <!-- ============ Chiffres ============ -->
-  <section class="block numbers">
-    <div class="number reveal"><strong>54</strong><span>lignes de C pour<br>un serveur web</span></div>
-    <div class="number reveal"><strong>3</strong><span>IA branchées<br>dans une seule appli</span></div>
-    <div class="number reveal"><strong>1</strong><span>vieux PC devenu<br>serveur Linux</span></div>
+    <!-- rempli par assets/js/accueil.js -->
+    <div class="vitrine" id="vitrine" aria-hidden="true"></div>
   </section>
 
   <!-- ============ Projets ============
-       Les tuiles sont générées depuis contenu/projets.js -->
-  <section id="projets" class="block">
-    <h2 class="reveal">Des projets.<br><span class="dim">Finis, ou presque.</span></h2>
-    <div class="bento" id="grille-projets"></div>
-    <noscript><p class="dim">Activez JavaScript pour voir les projets.</p></noscript>
+       Les cartes sont générées depuis contenu/projets.js -->
+  <section id="projets" class="section" data-capot>
+    <div class="contenu">
+      <p class="label reveal"><b>01</b>Sélection</p>
+      <h2 class="titre reveal">Projets récents.<br><span class="dim">Et ce qu'il y a dessous.</span></h2>
+      <p class="intro-section reveal">Quelques réalisations de mes deux premières années d'études. <span data-tactile="Touchez « Sous le capot » pour voir l'envers du décor.">Survolez une carte pour voir l'envers du décor.</span></p>
+      <div class="projets-grille" id="grille-projets"></div>
+      <noscript><p class="dim">Activez JavaScript pour voir les projets.</p></noscript>
+    </div>
+  </section>
+
+  <!-- ============ À propos (section claire) ============ -->
+  <section id="apropos" class="section clair" data-capot>
+    <div class="contenu">
+      <p class="label reveal"><b>02</b>Qui suis-je</p>
+      <h2 class="titre reveal">À propos.<br><span class="dim">Un peu plus sur moi.</span></h2>
+
+      <div class="apropos">
+        <div class="apropos-texte reveal">
+          <p class="chapo">Étudiant en Bachelor Informatique &amp; Cybersécurité, à la recherche d'un stage.</p>
+          <p>Je suis en deuxième année à l'ESILV, à La Défense. Curieux et sociable, j'ai une bonne capacité à résoudre des problèmes, et je m'investis à fond dans tout ce qui me passionne.</p>
+          <p>Le volley m'a appris l'esprit d'équipe et à prendre des responsabilités. Je cherche maintenant un stage pour mettre tout ça en pratique : n'hésitez pas à me contacter pour en discuter.</p>
+          <div class="cta gauche">
+            <a class="pill" href="#contact">Me contacter</a>
+            <a class="lien" href="assets/docs/CV_NINCLAUS_Hugo.pdf" download>Télécharger mon CV <span>↓</span></a>
+          </div>
+        </div>
+
+        <aside class="carte-id reveal" style="--i:1" aria-label="Carte d'étudiant">
+          <div class="carte-id-tete">
+            <img src="assets/img/esilv.png" alt="ESILV" width="64" height="64">
+            <span>Carte étudiant</span>
+          </div>
+          <h3>Hugo Ninclaus</h3>
+          <p class="programme">Bachelor Informatique &amp; Cybersécurité</p>
+          <dl>
+            <div><dt>Promotion</dt><dd>2025 – 2028</dd></div>
+            <div><dt>Année</dt><dd>2e année</dd></div>
+            <div><dt>École</dt><dd>La Défense, Paris</dd></div>
+            <div><dt>Basé à</dt><dd>Villemomble (93)</dd></div>
+          </dl>
+        </aside>
+      </div>
+
+      <h3 class="sous-titre reveal">Hors écran.</h3>
+      <ul class="interets" data-capot>
+        <li class="reveal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3c-1.6 3.4-1.4 6.6.8 9"/><path d="M3.4 9.6c3.6-1 6.8-.3 9.4 2.4"/><path d="M12.8 12c-.2 3.6-1.9 6.6-4.8 8.5"/><path d="M12.8 12c3.4 1.3 6.2 1.4 8.6.4"/></svg>
+          Volley-ball
+        </li>
+        <li class="reveal" style="--i:1">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="10" width="18" height="9" rx="1.5"/><rect x="6" y="6.5" width="4" height="3.5" rx="1"/><rect x="14" y="6.5" width="4" height="3.5" rx="1"/></svg>
+          Lego
+        </li>
+        <li class="reveal" style="--i:2">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h14v9H5"/><path d="M5 4h3.5v3H5zM12 4h3.5v3H12zM8.5 7H12v3H8.5zM15.5 7H19v3h-3.5zM5 10h3.5v3H5zM12 10h3.5v3H12z" fill="currentColor" stroke="none"/></svg>
+          Sport automobile
+        </li>
+        <li class="reveal" style="--i:3">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="9" width="18" height="12" rx="1.5"/><path d="M3 9l1.2-4.6 16.2 1.8L21 9"/><path d="M8.5 4.9l2.3 3.9M14 5.5l2.3 3.5"/></svg>
+          Cinéma
+        </li>
+        <li class="reveal" style="--i:4">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4.5" height="7" rx="1.5"/><rect x="16.5" y="14" width="4.5" height="7" rx="1.5"/></svg>
+          Musique
+        </li>
+      </ul>
+    </div>
   </section>
 
   <!-- ============ Parcours ============ -->
-  <section id="parcours" class="block">
-    <h2 class="reveal">Parcours.<br><span class="dim">Jusqu'ici.</span></h2>
-    <ol class="steps">
-      <li class="reveal">
-        <span class="n">2025 — 2028</span>
-        <h3>Bachelor Informatique &amp; Cybersécurité<small>ESILV · La Défense</small></h3>
-        <p>En deuxième année. Programmation système et réseaux, systèmes embarqués, NoSQL, mécatronique.</p>
-      </li>
-      <li class="reveal">
-        <span class="n">2024 — 2025</span>
-        <h3>Baccalauréat général<small>Lycée Georges Clemenceau · Villemomble</small></h3>
-        <p>Spécialités NSI et mathématiques, option maths expertes. DNL physique-chimie.</p>
-      </li>
-      <li class="reveal">
-        <span class="n">2023 — 2024</span>
-        <h3>Barista<small>Marché de l'Époque · Villemomble</small></h3>
-        <p>Six mois en parallèle du lycée. Ça apprend à rester calme quand la file d'attente déborde.</p>
-      </li>
-      <li class="reveal">
-        <span class="n">2022</span>
-        <h3>Stage de 3e, support technique<small>IEDOM · Paris</small></h3>
-        <p>Une semaine au support informatique de premier niveau. Mon premier pied dans le métier.</p>
-      </li>
-    </ol>
+  <section id="parcours" class="section" data-capot>
+    <div class="contenu">
+      <p class="label reveal"><b>03</b>Parcours</p>
+      <h2 class="titre reveal">Formation.<br><span class="dim">Et premières expériences.</span></h2>
+
+      <ol class="frise">
+        <li class="reveal">
+          <span class="date">2025 – 2028</span>
+          <div class="etape">
+            <h3>Bachelor Informatique &amp; Cybersécurité<span class="pastille">En cours</span></h3>
+            <p class="lieu">ESILV, École Supérieure d'Ingénieurs Léonard de Vinci · La Défense</p>
+            <ul class="details">
+              <li>Spécialisation en cybersécurité</li>
+              <li>En 2e année : programmation système et réseaux, systèmes embarqués, NoSQL, mécatronique</li>
+            </ul>
+            <a class="lien" href="https://esilv.fr/formations/bachelor-informatique-cybersecurite/" target="_blank" rel="noopener">La formation <span>↗</span></a>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="date">2024 – 2025</span>
+          <div class="etape">
+            <h3>Baccalauréat général</h3>
+            <p class="lieu">Lycée Georges Clemenceau · Villemomble</p>
+            <ul class="details">
+              <li>Spécialité Numérique et Sciences Informatiques (NSI)</li>
+              <li>Spécialité Mathématiques, option Mathématiques expertes</li>
+              <li>Option DNL Physique-Chimie</li>
+            </ul>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="date">2023 – 2024</span>
+          <div class="etape">
+            <h3>Barista</h3>
+            <p class="lieu">Marché de l'Époque · Villemomble</p>
+            <ul class="details">
+              <li>Six mois, en parallèle du lycée</li>
+            </ul>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="date">2022</span>
+          <div class="etape">
+            <h3>Stage de troisième</h3>
+            <p class="lieu">IEDOM · Paris</p>
+            <ul class="details">
+              <li>Support technique de premier niveau</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </div>
   </section>
 
   <!-- ============ Compétences ============ -->
-  <section id="competences" class="block">
-    <h2 class="reveal">La boîte à outils.<br><span class="dim">Elle grossit.</span></h2>
-    <div class="bento competences">
-      <article class="tile wide reveal">
-        <p class="tile-label">Langages</p>
-        <h3>Ce que j'écris.</h3>
-        <ul class="tags">
-          <li>C</li><li>Python</li><li>JavaScript</li><li>HTML</li><li>CSS</li><li>SQL</li>
-        </ul>
-      </article>
-      <article class="tile reveal">
-        <p class="tile-label">Langues</p>
-        <h3>Ce que je parle.</h3>
-        <dl class="langues">
-          <dt>Français</dt><dd>natif</dd>
-          <dt>Anglais</dt><dd>B2 · TOEFL 557</dd>
-          <dt>Allemand</dt><dd>A2+</dd>
-        </dl>
-      </article>
-      <article class="tile reveal">
-        <p class="tile-label">Matériel</p>
-        <h3>Ce que je câble.</h3>
-        <ul class="tags">
-          <li>Arduino</li><li>Tinkercad</li><li>SolidWorks</li>
-        </ul>
-      </article>
-      <article class="tile wide accent reveal">
-        <p class="tile-label">Système &amp; réseau</p>
-        <h3>Ce que j'administre.</h3>
-        <ul class="tags">
-          <li>Linux</li><li>Nginx</li><li>SSH / SCP</li><li>Sockets TCP</li><li>Git</li><li>Docker</li>
-        </ul>
-      </article>
-    </div>
-  </section>
+  <section id="competences" class="section" data-capot>
+    <div class="contenu">
+      <p class="label reveal"><b>04</b>Stack</p>
+      <h2 class="titre reveal">Compétences.<br><span class="dim">Techniques, logicielles et humaines.</span></h2>
 
-  <!-- ============ Hors écran ============ -->
-  <section class="block">
-    <h2 class="reveal">Hors écran.<br><span class="dim">Ça compte aussi.</span></h2>
-    <ul class="interets reveal">
-      <li>Volley-ball</li>
-      <li>Lego</li>
-      <li>Sport auto</li>
-      <li>Cinéma</li>
-      <li>Musique</li>
-    </ul>
-    <p class="interets-note reveal">Le volley m'a appris l'essentiel du travail en équipe&nbsp;: on ne marque jamais un point tout seul, et c'est quand ça va mal qu'il faut parler.</p>
+      <div class="bento">
+        <article class="tuile large reveal">
+          <p class="tuile-label">Langages</p>
+          <ul class="mots">
+            <li>C</li><li>Python</li><li>JavaScript</li><li>HTML</li><li>CSS</li><li>SQL</li>
+          </ul>
+        </article>
+
+        <article class="tuile reveal" style="--i:1">
+          <p class="tuile-label">Langues</p>
+          <dl class="niveaux">
+            <div>
+              <dt>Français <span>natif</span></dt>
+              <dd><i class="plein"></i><i class="plein"></i><i class="plein"></i><i class="plein"></i><i class="plein"></i><i class="plein"></i></dd>
+            </div>
+            <div>
+              <dt>Anglais <span>B2 · TOEFL 557</span></dt>
+              <dd><i class="plein"></i><i class="plein"></i><i class="plein"></i><i class="plein"></i><i></i><i></i></dd>
+            </div>
+            <div>
+              <dt>Allemand <span>A2+</span></dt>
+              <dd><i class="plein"></i><i class="plein"></i><i class="moitie"></i><i></i><i></i><i></i></dd>
+            </div>
+          </dl>
+        </article>
+
+        <article class="tuile accent reveal">
+          <p class="tuile-label">Logiciels &amp; outils</p>
+          <h3>Au quotidien.</h3>
+          <ul class="tags">
+            <li>VS Code</li><li>Linux</li><li>Nginx</li><li>SSH</li><li>Git</li>
+            <li>SolidWorks</li><li>Tinkercad</li><li>Arduino</li><li>Google Docs</li><li>Google Slides</li>
+          </ul>
+        </article>
+
+        <article class="tuile large reveal" style="--i:1">
+          <p class="tuile-label">Soft skills</p>
+          <ul class="qualites">
+            <li><strong>Sociabilité</strong><span>À l'aise pour échanger, en cours comme en équipe de volley.</span></li>
+            <li><strong>Curiosité</strong><span>Autodidacte : quand je ne comprends pas, je cherche jusqu'à comprendre.</span></li>
+            <li><strong>Team leading</strong><span>Prendre des responsabilités et faire avancer un groupe.</span></li>
+          </ul>
+        </article>
+      </div>
+    </div>
   </section>
 
   <!-- ============ Contact ============ -->
-  <section id="contact" class="block final reveal">
-    <h2>Un stage, un projet&nbsp;?<br><span class="dim">Écrivez-moi.</span></h2>
-    <div class="cta">
-      <a class="pill big" href="mailto:hugo.ninclaus@outlook.fr">M'envoyer un mail</a>
-      <a class="link" href="https://www.linkedin.com/in/hugo-ninclaus/" target="_blank" rel="noopener">LinkedIn <span>›</span></a>
-      <a class="link" href="https://github.com/hugo-ninclaus" target="_blank" rel="noopener">GitHub <span>›</span></a>
+  <section id="contact" class="section contact" data-capot>
+    <div class="contenu">
+      <p class="label reveal"><b>05</b>Travaillons ensemble</p>
+      <h2 class="titre reveal">Une opportunité de stage&nbsp;?<br><span class="dim">Parlons-en.</span></h2>
+
+      <a class="mail-geant reveal" href="mailto:hugo.ninclaus@outlook.fr">hugo.ninclaus@outlook.fr</a>
+
+      <div class="cta reveal">
+        <a class="pill big" href="mailto:hugo.ninclaus@outlook.fr">M'envoyer un email</a>
+        <button class="pill big secondaire" type="button" data-copier="hugo.ninclaus@outlook.fr">Copier l'adresse</button>
+      </div>
+
+      <dl class="contact-infos reveal">
+        <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/hugo-ninclaus/" target="_blank" rel="noopener">hugo-ninclaus ↗</a></dd></div>
+        <div><dt>GitHub</dt><dd><a href="https://github.com/hugo-ninclaus" target="_blank" rel="noopener">hugo-ninclaus ↗</a></dd></div>
+        <div><dt>Téléphone</dt><dd><a href="tel:+33749241955">+33 7 49 24 19 55</a></dd></div>
+        <div><dt>Localisation</dt><dd>Villemomble (93)<br>École à La Défense</dd></div>
+      </dl>
     </div>
-    <p class="mail">hugo.ninclaus@outlook.fr</p>
   </section>
 
 </main>
 
-<footer>
-  <div class="foot-inner">
-    <span>Hugo Ninclaus · <span data-annee>2026</span></span>
-    <span>Villemomble · <span data-heure>Paris</span></span>
-    <span>Codé à la main, sans framework.</span>
+<!-- ============ Pied de page ============ -->
+<footer class="pied" data-capot>
+  <div class="pied-inner">
+    <div class="generique">
+      <p><span>Portfolio</span>Hugo Ninclaus<br>Étudiant à l'ESILV</p>
+      <p><span>Ailleurs</span><a href="https://www.linkedin.com/in/hugo-ninclaus/" target="_blank" rel="noopener">LinkedIn</a><br><a href="https://github.com/hugo-ninclaus" target="_blank" rel="noopener">GitHub</a></p>
+      <p><span>Ce site</span>Codé à la main, sans framework<br>Inter &amp; JetBrains Mono</p>
+      <p><span>À Villemomble</span>Il est <time data-heure>--:--</time></p>
+    </div>
+    <div class="pied-bas">
+      <span>© <span data-annee>2026</span> Hugo Ninclaus</span>
+      <div>
+        <button type="button" data-capot-toggle aria-pressed="false">Ouvrir le capot</button>
+        <a href="#accueil">Haut de page ↑</a>
+      </div>
+    </div>
   </div>
 </footer>
 
 <script src="contenu/projets.js"></script>
+<script src="assets/js/couvertures.js"></script>
+<script src="assets/js/code.js"></script>
 <script src="assets/js/accueil.js"></script>
 </body>
 </html>

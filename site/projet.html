@@ -10,44 +10,79 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500&display=swap">
 
 <link rel="stylesheet" href="assets/css/variables.css">
 <link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/couvertures.css">
 <link rel="stylesheet" href="assets/css/projet.css">
+<link rel="stylesheet" href="assets/css/capot.css">
 <script src="assets/js/commun.js"></script>
 </head>
 <body>
 
-<header class="nav">
+<a class="evitement" href="#projet">Aller au contenu</a>
+
+<header class="nav" data-capot>
   <div class="nav-inner">
-    <a class="logo" href="index.html">Hugo Ninclaus</a>
-    <nav>
+    <a class="logo" href="index.html">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 10l6 6-6 6" stroke="var(--accent)"/><path d="M17 22h7" stroke="var(--text)"/>
+        </svg>
+      </span>
+      Hugo Ninclaus
+    </a>
+    <nav class="nav-liens" id="menu" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
       <a class="actif" href="index.html#projets">Projets</a>
+      <a href="index.html#apropos">À propos</a>
       <a href="index.html#parcours">Parcours</a>
-      <a href="index.html#competences">Compétences</a>
       <a href="index.html#contact">Contact</a>
-      <a class="nav-cta" href="assets/docs/CV_NINCLAUS_Hugo.pdf" target="_blank" rel="noopener">CV</a>
     </nav>
+    <div class="nav-actions">
+      <button class="btn-capot" type="button" data-capot-toggle aria-pressed="false" title="Ouvrir le capot du site">&lt;/&gt;</button>
+      <a class="nav-cta" href="assets/docs/CV_NINCLAUS_Hugo.pdf" target="_blank" rel="noopener">CV</a>
+      <button class="burger" type="button" aria-label="Menu" aria-controls="menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
   </div>
 </header>
 
 <!-- Rempli par assets/js/projet.js à partir de contenu/projets.js -->
 <main id="projet" class="projet"></main>
 
-<footer>
-  <div class="foot-inner">
-    <span>Hugo Ninclaus · <span data-annee>2026</span></span>
-    <span>Villemomble · <span data-heure>Paris</span></span>
-    <span class="foot-liens">
-      <a href="mailto:hugo.ninclaus@outlook.fr">Mail</a>
-      <a href="https://www.linkedin.com/in/hugo-ninclaus/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/hugo-ninclaus" target="_blank" rel="noopener">GitHub</a>
-    </span>
+<!-- Image en grand (galerie) -->
+<dialog class="visionneuse" aria-label="Image en grand">
+  <figure>
+    <img src="" alt="">
+    <figcaption></figcaption>
+  </figure>
+  <button class="fermer-visionneuse" type="button" aria-label="Fermer">×</button>
+  <button type="button" data-sens="-1" aria-label="Image précédente">‹</button>
+  <button type="button" data-sens="1" aria-label="Image suivante">›</button>
+</dialog>
+
+<footer class="pied" data-capot>
+  <div class="pied-inner">
+    <div class="generique">
+      <p><span>Portfolio</span>Hugo Ninclaus<br>Étudiant à l'ESILV</p>
+      <p><span>Contact</span><a href="mailto:hugo.ninclaus@outlook.fr">hugo.ninclaus@outlook.fr</a></p>
+      <p><span>Ailleurs</span><a href="https://www.linkedin.com/in/hugo-ninclaus/" target="_blank" rel="noopener">LinkedIn</a><br><a href="https://github.com/hugo-ninclaus" target="_blank" rel="noopener">GitHub</a></p>
+      <p><span>À Villemomble</span>Il est <time data-heure>--:--</time></p>
+    </div>
+    <div class="pied-bas">
+      <span>© <span data-annee>2026</span> Hugo Ninclaus</span>
+      <div>
+        <button type="button" data-capot-toggle aria-pressed="false">Ouvrir le capot</button>
+        <a href="index.html#projets">Tous les projets</a>
+      </div>
+    </div>
   </div>
 </footer>
 
 <script src="contenu/projets.js"></script>
+<script src="assets/js/couvertures.js"></script>
+<script src="assets/js/code.js"></script>
 <script src="assets/js/projet.js"></script>
 </body>
 </html>
