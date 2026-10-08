@@ -1,7 +1,7 @@
 # Suivi du chantier — portfolio
 
 > Fichier tenu à jour pendant le travail, au cas où la session s'arrête.
-> Dernière mise à jour : 8 oct. 2026 — tour des bugs + carrousel de l'accueil en cours.
+> Dernière mise à jour : 8 oct. 2026 — tour des bugs fini, carrousel de l'accueil fini et testé.
 
 ## Ce que tu as demandé
 
@@ -61,8 +61,10 @@ Version précédente (1re version, avant refonte) : commit `43b4ca6` (`git log`)
 - [x] Fond blanc de « À propos » remplacé par un gris graphite avec un halo bleu (tu n'aimais pas le blanc)
 - [x] Nouveau `outils/serveur.py` : serveur local sans cache (le navigateur gardait l'ancien CSS)
 - [x] Vitrine de l'accueil sur téléphone : pile de cartes qu'on fait glisser façon Tinder
-- [ ] **En cours** : vitrine en carrousel interactif sur toutes les tailles (ordi : cartes en éventail façon Cover Flow ; téléphone : pile Tinder), défilement automatique quand on la regarde sans y toucher
-- [ ] Captures de contrôle à 1440 / 768 / 320 px, puis commit
+- [x] Vitrine en carrousel interactif sur toutes les tailles : ordi = cartes en éventail (Cover Flow), téléphone = pile Tinder. Flèches, points, clavier, glisser. Défilement automatique quand on la regarde sans y toucher (pause de 7 s après une action), barre de progression dans le point actif
+- [x] Bug du glissement : un autre doigt ou la souris pouvait perturber le geste → on ne suit que le pointeur qui a attrapé la carte
+- [x] Sous-titre « Compétences » raccourci (il passait sur 3 lignes), adresse mail du pied de page qui touchait le bord à 320 px
+- [x] Captures de contrôle 1440 / 768 / 320 px + console sans erreur sur toutes les pages (accueil, 3 projets, projet inconnu, 404)
 
 ## Idée directrice
 

@@ -461,6 +461,7 @@ pre.code code {
     margin: 0;
     font-size: 0.85rem;
     color: var(--text-2);
+    overflow-wrap: anywhere;
 }
 
 .generique p > span:first-child {

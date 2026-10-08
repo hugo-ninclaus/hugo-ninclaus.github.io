@@ -30,15 +30,26 @@ portfolio/
 │       │   ├── commun.js     animations, menu mobile, mode capot, heure, copier l'email
 │       │   ├── couvertures.js  dessins SVG des projets (parking, serveur)
 │       │   ├── code.js       affichage et coloration du code « sous le capot »
-│       │   ├── accueil.js    vitrine, cartes de projets, frise du parcours
+│       │   ├── accueil.js    carrousel du haut, cartes de projets, frise du parcours
 │       │   └── projet.js     construit la page d'un projet
 │       ├── img/              favicon, logo ESILV, captures des projets
 │       └── docs/             CV en PDF
 │
+├── outils/serveur.py             serveur local sans cache pour tester
 ├── .github/workflows/pages.yml   publication automatique sur GitHub Pages
 ├── Dockerfile, compose*.yml      pour plus tard (Docker)
 └── docker/                       config nginx + Caddy (HTTPS)
 ```
+
+### Le carrousel du haut de page
+
+- Il montre les 3 premiers projets de `projets.js`.
+- Sur ordinateur : cartes en éventail, le projet actif au centre. Sur tablette et téléphone : pile de cartes
+  qu'on fait glisser à gauche ou à droite, façon Tinder.
+- Flèches, points, clavier (← →) et glisser avec le doigt ou la souris. Un clic sur la carte active ouvre le projet.
+- Quand il est à l'écran et qu'on n'y touche pas, il avance tout seul (la barre du point actif montre le temps restant).
+  Après une action, il attend 7 s avant de reprendre. Réglages `DUREE` et `PAUSE` en haut de la fonction
+  `carrousel` dans `assets/js/accueil.js`.
 
 ### L'idée « sous le capot »
 
@@ -58,8 +69,11 @@ et la page se recharge à chaque sauvegarde.
 **Sans VS Code** :
 
 ```bash
-python3 -m http.server 5500 --directory site
+python3 outils/serveur.py
 ```
+
+→ http://localhost:8000. Ce petit serveur dit au navigateur de ne rien garder en cache,
+donc chaque modification se voit au rechargement (ce n'est pas le cas de `python3 -m http.server`).
 
 > Ouvrir `index.html` en double-cliquant marche aussi, mais un vrai petit serveur évite les surprises.
 
