@@ -108,7 +108,8 @@ Arduino UNO
 </header>`
         },
         liens: [
-            // { texte: "Voir le site", url: "http://monster.ninclaus.fr" },
+            { texte: "Voir le site", url: "https://hugo-ninclaus.github.io/Projet_html/" },
+            { texte: "Code source", url: "https://github.com/hugo-ninclaus/Projet_html" },
         ],
         contexte: "Ce projet nous a été donné comme note finale du cours de HTML/CSS. Le défi : réinventer un site qui existe déjà, en repensant entièrement son style, son agencement et ses fonctionnalités.",
         realisation: "J'ai conçu une version plus simple à utiliser, organisée par univers : boissons, athlètes, événements, actualités. Les grands athlètes sponsorisés par la marque sont mis en avant, chacun avec un lien vers sa page Wikipédia.",
