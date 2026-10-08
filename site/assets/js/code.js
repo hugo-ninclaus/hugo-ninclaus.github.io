@@ -92,7 +92,7 @@ function fenetreCode(capot) {
 /* Couverture complète d'un projet : dessin/image + capot + bouton. */
 function couvertureComplete(p) {
     var capot = p.capot
-        ? '<div class="capot" aria-hidden="true">' + fenetreCode(p.capot) + "</div>" +
+        ? '<div class="sous-capot" aria-hidden="true">' + fenetreCode(p.capot) + "</div>" +
           '<button class="btn-code" type="button" aria-pressed="false">' +
               '<span class="ouvrir">&lt;/&gt; Sous le capot</span><span class="fermer">Fermer</span>' +
           "</button>"
@@ -111,5 +111,5 @@ document.addEventListener("click", function (e) {
     var couverture = bouton.closest(".couverture");
     var ouvert = couverture.classList.toggle("ouvert");
     bouton.setAttribute("aria-pressed", ouvert);
-    couverture.querySelector(".capot").setAttribute("aria-hidden", !ouvert);
+    couverture.querySelector(".sous-capot").setAttribute("aria-hidden", !ouvert);
 });

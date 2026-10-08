@@ -75,7 +75,7 @@ html.capot .nav[data-capot]::before {
 }
 
 /* les cartes montrent leur code en permanence */
-html.capot .capot {
+html.capot .sous-capot {
     clip-path: inset(0);
 }
 

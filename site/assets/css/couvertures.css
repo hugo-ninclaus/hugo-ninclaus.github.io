@@ -40,7 +40,7 @@
 
 /* ---------- Sous le capot ---------- */
 
-.capot {
+.sous-capot {
     position: absolute;
     inset: 0;
     z-index: 2;
@@ -50,14 +50,14 @@
     pointer-events: none;      /* un clic sur le code ouvre quand même le projet */
 }
 
-.capot .code-fenetre {
+.sous-capot .code-fenetre {
     height: 100%;
     border-radius: 0;
     box-shadow: none;
     background: transparent;
 }
 
-.capot pre.code {
+.sous-capot pre.code {
     overflow: hidden;
     font-size: clamp(0.66rem, 1.1vw, 0.8rem);
 }
@@ -77,7 +77,7 @@
     pointer-events: none;
 }
 
-.couverture.ouvert .capot {
+.couverture.ouvert .sous-capot {
     clip-path: inset(0);
 }
 
@@ -86,7 +86,7 @@
 }
 
 @media (hover: hover) {
-    .carte:hover .capot {
+    .carte:hover .sous-capot {
         clip-path: inset(0);
     }
     .carte:hover .couverture::after {
