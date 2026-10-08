@@ -109,7 +109,7 @@ code {
 /* le noir se fond dans le gris en haut, et le gris redevient noir en bas */
 .section.alt {
     padding-top: calc(var(--espace-section) * 1.7);
-    padding-bottom: calc(var(--espace-section) * 1.1);
+    padding-bottom: calc(var(--espace-section) * 0.9);
     background:
         radial-gradient(55% 40% at 85% 38%, var(--halo), transparent 70%),
         linear-gradient(180deg,
@@ -124,7 +124,7 @@ html.capot .section.alt {
 }
 
 .section.alt + .section {
-    padding-top: calc(var(--espace-section) * 0.7);
+    padding-top: calc(var(--espace-section) * 0.55);
 }
 
 h1, h2, h3 {
