@@ -12,7 +12,6 @@
     overflow: hidden;
     border-radius: var(--rayon-petit);
     background: var(--tile-2);
-    isolation: isolate;
 }
 
 .carrosserie {
@@ -48,6 +47,7 @@
     background: var(--code-bg);
     clip-path: inset(0 0 100% 0);
     transition: clip-path 0.7s var(--ease);
+    pointer-events: none;      /* un clic sur le code ouvre quand même le projet */
 }
 
 .capot .code-fenetre {

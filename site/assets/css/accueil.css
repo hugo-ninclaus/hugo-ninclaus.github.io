@@ -107,6 +107,96 @@
     filter: brightness(1.15);
 }
 
+/* ---------- Vitrine en pile (tablette et téléphone) ----------
+   Les projets sont empilés comme des cartes. On fait glisser celle
+   du dessus à gauche ou à droite pour passer à la suivante, façon
+   Tinder (le geste est géré dans accueil.js). */
+
+.vitrine-legende {
+    display: none;
+}
+
+@media (max-width: 860px) {
+    .vitrine {
+        grid-template-columns: 1fr;
+        max-width: 460px;
+        padding-top: 34px;
+        perspective: none;
+    }
+
+    .vitrine .couverture,
+    .vitrine .couverture:nth-child(1),
+    .vitrine .couverture:nth-child(3) {
+        grid-area: 1 / 1;
+        z-index: calc(10 - var(--rang, 0));
+        border-radius: 18px;
+        transform-origin: 50% 0%;
+        transform:
+            translateY(calc(var(--rang, 0) * -17px))
+            scale(calc(1 - var(--rang, 0) * 0.07));
+        filter: brightness(calc(1 - var(--rang, 0) * 0.35));
+        transition: transform 0.8s var(--ease), filter 0.8s;
+        touch-action: pan-y;               /* le défilement vertical reste possible */
+        user-select: none;
+        -webkit-user-select: none;
+        -webkit-user-drag: none;
+        cursor: grab;
+    }
+
+    .vitrine .couverture:active {
+        cursor: grabbing;
+    }
+
+    .vitrine-legende {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        margin-top: 26px;
+    }
+
+    .vitrine-legende p {
+        margin: 0;
+    }
+
+    .pile-titre {
+        font-size: 1.05rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        color: var(--text);
+    }
+
+    .pile-titre span {
+        font-weight: 400;
+        color: var(--grey);
+    }
+
+    .pile-points {
+        display: flex;
+        gap: 6px;
+    }
+
+    .pile-points i {
+        width: 6px;
+        height: 6px;
+        border-radius: 3px;
+        background: var(--line-2);
+        transition: width 0.3s var(--ease), background 0.3s;
+    }
+
+    .pile-points i.actif {
+        width: 20px;
+        background: var(--text);
+    }
+
+    .pile-indice {
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        color: var(--dim);
+    }
+}
+
 /* ---------- Projets ---------- */
 
 .intro-section {
@@ -236,7 +326,7 @@
     margin-top: 10px;
 }
 
-/* ---------- À propos (section claire) ---------- */
+/* ---------- À propos (section graphite) ---------- */
 
 .apropos {
     display: grid;
@@ -277,7 +367,7 @@
         radial-gradient(140% 120% at 100% 0%, rgba(41, 151, 255, 0.45), transparent 55%),
         radial-gradient(120% 120% at 0% 100%, rgba(34, 211, 238, 0.22), transparent 50%),
         #111114;
-    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
     transform: rotate(-1.5deg);
     transition: transform 0.6s var(--ease);
 }
@@ -383,7 +473,7 @@ html.capot .carte-id {
 
 .interets li:hover {
     transform: translateY(-4px);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
 }
 
 .interets svg {
@@ -774,11 +864,7 @@ html.capot .tuile.accent {
         padding-top: 64px;
     }
     .vitrine {
-        grid-template-columns: 1fr 1fr;
         margin-top: 64px;
-    }
-    .vitrine .couverture:nth-child(3) {
-        display: none;
     }
     .bento {
         grid-template-columns: 1fr;

@@ -5,7 +5,7 @@
 
    Trois ambiances :
      :root         sombre, par défaut
-     .clair        sections sur fond clair (ex. "À propos")
+     .alt          sections en gris graphite (ex. "À propos")
      html.capot    le mode "capot ouvert" (bouton </> dans la barre du haut)
 */
 
@@ -48,27 +48,21 @@
     --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-/* ---------- Sections claires ---------- */
+/* ---------- Sections graphite (pour casser le noir) ---------- */
 
-.clair {
-    --bg: #f5f5f7;
-    --tile: #fff;
-    --tile-2: #fafafc;
-    --line: #d2d2d7;
-    --line-2: #c7c7cc;
-    --text: #1d1d1f;
-    --text-2: #424245;
-    --grey: #6e6e73;
-    --dim: #86868b;
-    --accent: #0071e3;
-    --accent-hover: #0077ed;
-    --accent-doux: rgba(0, 113, 227, 0.1);
+.alt {
+    --bg: #111113;
+    --tile: #1c1c1f;
+    --tile-2: #242428;
+    --line: #2e2e33;
+    --line-2: #414147;
+    --halo: rgba(41, 151, 255, 0.14);
 }
 
 /* ---------- Mode capot ---------- */
 
 html.capot,
-html.capot .clair {
+html.capot .alt {
     --bg: #06111f;
     --tile: rgba(34, 211, 238, 0.04);
     --tile-2: rgba(34, 211, 238, 0.08);

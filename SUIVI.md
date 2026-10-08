@@ -1,7 +1,7 @@
 # Suivi du chantier — portfolio
 
 > Fichier tenu à jour pendant le travail, au cas où la session s'arrête.
-> Dernière mise à jour : 7 oct. 2026, 8/8, site terminé et testé.
+> Dernière mise à jour : 8 oct. 2026 — tour des bugs + carrousel de l'accueil en cours.
 
 ## Ce que tu as demandé
 
@@ -47,6 +47,22 @@ Version précédente (1re version, avant refonte) : commit `43b4ca6` (`git log`)
 - [x] Test mobile + pages projet (captures headless) : OK
 - [ ] En attente : infos sur les projets (voir la liste envoyée dans la conversation)
 - [x] Commit local de la refonte
+
+## Tour des bugs (8 oct.)
+
+- [x] Bouton « Sous le capot » des cartes recouvert par le lien de la carte (un clic ouvrait le projet) → corrigé
+- [x] Carte étudiante pas inclinée, tuiles « Hors écran » sans effet au survol (l'animation d'apparition écrasait leur `transform`) → l'apparition utilise maintenant `translate`
+- [x] Grande carte : l'image débordait sur le texte à certaines largeurs → corrigé
+- [x] Visionneuse : flèches par-dessus l'image → image réduite pour laisser la place
+- [x] Copier l'adresse : marche aussi hors HTTPS (solution de secours)
+- [x] Menu mobile resté ouvert si on agrandit la fenêtre → se ferme
+- [x] Barre du haut : le lien de la section affichée s'allume
+- [x] Page 404 : texte qui parlait encore de bhttpd → « Rien sous ce capot. »
+- [x] Fond blanc de « À propos » remplacé par un gris graphite avec un halo bleu (tu n'aimais pas le blanc)
+- [x] Nouveau `outils/serveur.py` : serveur local sans cache (le navigateur gardait l'ancien CSS)
+- [x] Vitrine de l'accueil sur téléphone : pile de cartes qu'on fait glisser façon Tinder
+- [ ] **En cours** : vitrine en carrousel interactif sur toutes les tailles (ordi : cartes en éventail façon Cover Flow ; téléphone : pile Tinder), défilement automatique quand on la regarde sans y toucher
+- [ ] Captures de contrôle à 1440 / 768 / 320 px, puis commit
 
 ## Idée directrice
 

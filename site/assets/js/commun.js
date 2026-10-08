@@ -170,6 +170,31 @@ function fermerMenu() {
     if (burger) burger.setAttribute("aria-expanded", "false");
 }
 
+/* ---------- Copier dans le presse-papiers ----------
+   navigator.clipboard n'existe qu'en HTTPS (ou sur localhost) :
+   sinon on passe par une zone de texte cachée. */
+
+function copier(texte) {
+    if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(texte);
+    }
+    return new Promise(function (ok, echec) {
+        var zone = document.createElement("textarea");
+        zone.value = texte;
+        zone.setAttribute("readonly", "");
+        zone.style.position = "fixed";
+        zone.style.opacity = "0";
+        document.body.appendChild(zone);
+        zone.select();
+        try {
+            if (document.execCommand("copy")) ok(); else echec();
+        } catch (e) {
+            echec(e);
+        }
+        zone.remove();
+    });
+}
+
 /* ---------- Pied de page ---------- */
 
 function heureParis() {
@@ -208,6 +233,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("resize", function () {
         clearTimeout(attente);
         attente = setTimeout(function () {
+            if (window.innerWidth > 860) fermerMenu();
             if (html.classList.contains("capot")) { etiqueter(); remplirPanneau(); }
         }, 150);
     });
@@ -226,10 +252,12 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll("[data-copier]").forEach(function (bouton) {
         var texte = bouton.textContent;
         bouton.addEventListener("click", function () {
-            if (!navigator.clipboard) return;
-            navigator.clipboard.writeText(bouton.getAttribute("data-copier")).then(function () {
+            copier(bouton.getAttribute("data-copier")).then(function () {
                 bouton.textContent = "Adresse copiée";
                 bouton.classList.add("fait");
+            }, function () {
+                bouton.textContent = "Copie impossible";
+            }).then(function () {
                 setTimeout(function () {
                     bouton.textContent = texte;
                     bouton.classList.remove("fait");
