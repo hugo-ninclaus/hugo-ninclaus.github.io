@@ -106,18 +106,25 @@ code {
     color: var(--text);
 }
 
+/* le noir se fond dans le gris en haut, et le gris redevient noir en bas */
 .section.alt {
-    margin-top: var(--espace-section);
-    padding-bottom: var(--espace-section);
+    padding-top: calc(var(--espace-section) * 1.7);
+    padding-bottom: calc(var(--espace-section) * 1.1);
     background:
-        radial-gradient(70% 55% at 88% 0%, var(--halo), transparent 70%),
-        var(--bg);
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
+        radial-gradient(55% 40% at 85% 38%, var(--halo), transparent 70%),
+        linear-gradient(180deg,
+            var(--fond-page) 0%,
+            var(--bg) 18%,
+            var(--bg) 80%,
+            var(--fond-page) 100%);
 }
 
 html.capot .section.alt {
     background: transparent;
+}
+
+.section.alt + .section {
+    padding-top: calc(var(--espace-section) * 0.7);
 }
 
 h1, h2, h3 {

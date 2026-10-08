@@ -12,6 +12,7 @@
 :root {
     /* ---------- Couleurs ---------- */
     --bg: #000;
+    --fond-page: #000;        /* le noir de la page (ne change pas dans les sections .alt) */
     --tile: #111113;          /* fond des cartes */
     --tile-2: #1a1a1d;        /* carte au survol, fond des <code> */
     --line: #262629;          /* bordures, séparateurs */
