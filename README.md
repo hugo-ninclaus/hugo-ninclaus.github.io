@@ -22,12 +22,11 @@ portfolio/
 │       ├── css/
 │       │   ├── variables.css ← couleurs, polices, tailles (la DA en un fichier)
 │       │   ├── base.css      nav, titres, boutons, fenêtre de code, pied de page
-│       │   ├── couvertures.css  couvertures des projets + effet « capot »
+│       │   ├── couvertures.css  couvertures des projets + effet « sous le capot »
 │       │   ├── accueil.css   sections de la page d'accueil
-│       │   ├── projet.css    page projet (galerie, visionneuse…)
-│       │   └── capot.css     le mode capot (bouton </>)
+│       │   └── projet.css    page projet (galerie, visionneuse…)
 │       ├── js/
-│       │   ├── commun.js     animations, menu mobile, mode capot, heure, copier l'email
+│       │   ├── commun.js     animations, menu mobile, heure, copier l'email
 │       │   ├── couvertures.js  dessins SVG des projets (parking, serveur)
 │       │   ├── code.js       affichage et coloration du code « sous le capot »
 │       │   ├── accueil.js    carrousel du haut, cartes de projets, frise du parcours
@@ -53,12 +52,11 @@ portfolio/
 
 ### L'idée « sous le capot »
 
-- Au survol d'une carte de projet, une ligne de scan révèle ce qu'il y a derrière : le vrai code, le montage, les commandes.
-  Sur téléphone, c'est le bouton « Sous le capot » de la carte.
-- Le bouton `</>` de la barre du haut (ou « Ouvrir le capot » en bas de page) passe **tout le site** en plan technique :
-  grille, contour de chaque bloc avec sa taille réelle, et un panneau avec les vraies mesures de la page
-  (poids, nombre de requêtes, temps de chargement). `Échap` pour refermer.
-- Pour qu'un bloc soit étiqueté en mode capot, il suffit de lui ajouter l'attribut `data-capot`.
+Au survol d'une carte de projet, une ligne de scan révèle ce qu'il y a derrière : le vrai code, le montage, les commandes.
+Sur téléphone, c'est le bouton « Sous le capot » de la carte. Le contenu vient du champ `capot` de chaque projet
+dans `site/contenu/projets.js`.
+
+---
 
 ## Voir le site en local
 

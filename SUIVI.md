@@ -1,7 +1,7 @@
 # Suivi du chantier — portfolio
 
 > Fichier tenu à jour pendant le travail, au cas où la session s'arrête.
-> Dernière mise à jour : 8 oct. 2026 — tour des bugs fini, carrousel de l'accueil fini et testé.
+> Dernière mise à jour : 8 oct. 2026 — mode capot du site retiré (on garde « Sous le capot » sur les cartes).
 
 ## Ce que tu as demandé
 
@@ -65,12 +65,15 @@ Version précédente (1re version, avant refonte) : commit `43b4ca6` (`git log`)
 - [x] Bug du glissement : un autre doigt ou la souris pouvait perturber le geste → on ne suit que le pointeur qui a attrapé la carte
 - [x] Sous-titre « Compétences » raccourci (il passait sur 3 lignes), adresse mail du pied de page qui touchait le bord à 320 px
 - [x] Captures de contrôle 1440 / 768 / 320 px + console sans erreur sur toutes les pages (accueil, 3 projets, projet inconnu, 404)
+- [x] Section À propos : dégradé du noir vers le graphite (plus de coupure nette), halo bleu déplacé
+- [x] Pied de page : mention « codé à la main » retirée, remplacée par une colonne Contact
+- [x] Bug : le bouton `</>` rendait la page noire (conflit de nom de classe) → corrigé, puis…
+- [x] …**mode capot du site retiré** à ta demande (bouton `</>`, « Ouvrir le capot », panneau de mesures, `capot.css`). On garde le bouton « Sous le capot » des cartes de projets.
 
 ## Idée directrice
 
-« **Sous le capot** » : au survol d'un projet, une ligne de scan révèle le vrai code ou le montage derrière.
-Le bouton `</>` de la barre du haut ouvre le capot de **tout le site** : plan technique, contours des blocs
-avec leur taille réelle, panneau avec les vraies mesures de la page (poids, requêtes, temps de chargement).
+« **Sous le capot** » : au survol d'un projet, une ligne de scan révèle le vrai code ou le montage derrière
+(bouton « Sous le capot » sur téléphone).
 
 ## À vérifier par toi ensuite
 

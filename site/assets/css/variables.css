@@ -3,10 +3,9 @@
    Toute la direction artistique passe par ici : changer une couleur
    ou une police dans ce fichier la change partout.
 
-   Trois ambiances :
+   Deux ambiances :
      :root         sombre, par défaut
      .alt          sections en gris graphite (ex. "À propos")
-     html.capot    le mode "capot ouvert" (bouton </> dans la barre du haut)
 */
 
 :root {
@@ -25,7 +24,7 @@
     --accent: #2997ff;
     --accent-hover: #0077ed;
     --accent-doux: rgba(41, 151, 255, 0.14);
-    --cyan: #22d3ee;          /* l'accent de l'ancien portfolio, gardé pour le mode capot */
+    --cyan: #22d3ee;          /* l'accent de l'ancien portfolio (ligne de scan, frise) */
     --ok: #30d158;
     --violet: #a78bfa;
 
@@ -58,26 +57,4 @@
     --line: #2e2e33;
     --line-2: #414147;
     --halo: rgba(41, 151, 255, 0.14);
-}
-
-/* ---------- Mode capot ---------- */
-
-html.capot,
-html.capot .alt {
-    --bg: #06111f;
-    --tile: rgba(34, 211, 238, 0.04);
-    --tile-2: rgba(34, 211, 238, 0.08);
-    --line: rgba(34, 211, 238, 0.22);
-    --line-2: rgba(34, 211, 238, 0.4);
-    --text: #e6fbff;
-    --text-2: #b9e6f2;
-    --grey: #7fb3c4;
-    --dim: #4f7d8c;
-    --accent: #22d3ee;
-    --accent-hover: #67e8f9;
-    --accent-doux: rgba(34, 211, 238, 0.12);
-    --nav-bg: rgba(6, 17, 31, 0.8);
-    --nav-line: rgba(34, 211, 238, 0.25);
-    --code-bg: #04101c;
-    --font: var(--mono);
 }

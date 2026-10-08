@@ -1,5 +1,5 @@
 /*
-   Couvertures des projets : le cadre, la couche "capot" qui se révèle
+   Couvertures des projets : le cadre, la couche "sous le capot" qui se révèle
    au survol, et les dessins SVG (classes "cv-", voir assets/js/couvertures.js).
 */
 
@@ -380,31 +380,4 @@
     55%      { opacity: 1; }
     85%      { transform: translateX(52px); opacity: 1; }
     90%, 100% { transform: translateX(52px); opacity: 0; }
-}
-
-/* ---------- Mode capot : les dessins passent en plan ---------- */
-
-html.capot .cv-voiture rect:first-child,
-html.capot .cv-boitier,
-html.capot .cv-facade,
-html.capot .cv-baie,
-html.capot .cv-bouton,
-html.capot .cv-sol,
-html.capot .cv-lcd {
-    fill: transparent;
-    stroke: var(--line-2);
-}
-
-html.capot .cv-vitre {
-    fill: rgba(34, 211, 238, 0.08);
-}
-
-html.capot .carrosserie {
-    background: transparent;
-}
-
-html.capot .carrosserie img {
-    filter: grayscale(1) contrast(1.1) brightness(0.8);
-    mix-blend-mode: screen;
-    opacity: 0.8;
 }

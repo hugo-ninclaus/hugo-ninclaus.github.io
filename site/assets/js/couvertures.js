@@ -6,8 +6,8 @@
      - un dessin de ce fichier : couverture: "parking" (le nom d'une
        fonction ci-dessous)
 
-   Les dessins sont en SVG, avec les couleurs du site (variables CSS) :
-   ils changent tout seuls en mode capot. Leurs styles et animations
+   Les dessins sont en SVG, avec les couleurs du site (variables CSS).
+   Leurs styles et animations
    sont dans assets/css/couvertures.css (préfixe "cv-").
 */
 

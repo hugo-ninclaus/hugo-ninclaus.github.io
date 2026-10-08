@@ -2,17 +2,11 @@
    Chargé dans le <head> de toutes les pages.
    - apparition des blocs .reveal au défilement
    - menu mobile
-   - mode capot (bouton </> : le site montre sa structure et ses mesures)
    - heure de Paris, année, bouton "copier l'adresse"
 */
 
 var html = document.documentElement;
 html.classList.add("js");
-
-// on garde le mode capot d'une page à l'autre (le temps de la visite)
-try {
-    if (sessionStorage.getItem("capot") === "1") html.classList.add("capot");
-} catch (e) {}
 
 var mouvementReduit = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -68,98 +62,6 @@ function progression(el, depart, arrivee) {
     var h = window.innerHeight;
     var p = (h * depart - r.top) / (h * (depart - arrivee));
     return Math.min(Math.max(p, 0), 1);
-}
-
-/* ---------- Mode capot ---------- */
-
-function decrire(el) {
-    var nom = el.tagName.toLowerCase();
-    if (el.id) nom += "#" + el.id;
-    var classes = [].filter.call(el.classList, function (c) {
-        return c !== "reveal" && c !== "in";
-    });
-    if (classes.length) nom += "." + classes.slice(0, 2).join(".");
-    var r = el.getBoundingClientRect();
-    return nom + "  " + Math.round(r.width) + " × " + Math.round(r.height);
-}
-
-function etiqueter() {
-    document.querySelectorAll("[data-capot]").forEach(function (el) {
-        el.setAttribute("data-capot-info", decrire(el));
-    });
-}
-
-function octets(n) {
-    return n > 1024 * 1024
-        ? (n / 1024 / 1024).toFixed(2).replace(".", ",") + " Mo"
-        : Math.round(n / 1024) + " Ko";
-}
-
-function mesurer() {
-    var nav = performance.getEntriesByType("navigation")[0];
-    var ressources = performance.getEntriesByType("resource");
-    var poids = ressources.reduce(function (total, r) {
-        return total + (r.transferSize || r.encodedBodySize || 0);
-    }, nav ? (nav.transferSize || nav.encodedBodySize || 0) : 0);
-
-    var css = 0, js = 0;
-    ressources.forEach(function (r) {
-        if (/\.css(\?|$)/.test(r.name)) css++;
-        if (/\.js(\?|$)/.test(r.name)) js++;
-    });
-
-    return {
-        poids: poids ? octets(poids) : "?",
-        requetes: ressources.length + 1,
-        fichiers: css + " CSS · " + js + " JS",
-        elements: document.getElementsByTagName("*").length,
-        chargement: nav && nav.domContentLoadedEventEnd
-            ? Math.round(nav.domContentLoadedEventEnd) + " ms"
-            : "?",
-        ecran: window.innerWidth + " × " + window.innerHeight,
-        cookies: document.cookie ? document.cookie.split(";").length : 0
-    };
-}
-
-function remplirPanneau() {
-    var m = mesurer();
-    document.querySelectorAll("[data-mesure]").forEach(function (dd) {
-        dd.textContent = m[dd.getAttribute("data-mesure")];
-    });
-}
-
-function creerPanneau() {
-    var panneau = document.createElement("aside");
-    panneau.className = "capot-panneau";
-    panneau.setAttribute("aria-label", "Mesures de la page");
-    panneau.innerHTML =
-        '<p class="capot-titre"><span>Capot ouvert</span><button type="button" data-capot-toggle aria-label="Fermer le capot">×</button></p>' +
-        "<dl>" +
-            '<dt>Poids de la page</dt><dd data-mesure="poids"></dd>' +
-            '<dt>Requêtes</dt><dd data-mesure="requetes"></dd>' +
-            '<dt>Fichiers</dt><dd data-mesure="fichiers"></dd>' +
-            '<dt>Éléments HTML</dt><dd data-mesure="elements"></dd>' +
-            '<dt>Page prête en</dt><dd data-mesure="chargement"></dd>' +
-            '<dt>Fenêtre</dt><dd data-mesure="ecran"></dd>' +
-            '<dt>Framework</dt><dd>aucun</dd>' +
-            '<dt>Cookies</dt><dd data-mesure="cookies"></dd>' +
-        "</dl>" +
-        "<p class=\"capot-note\">Ce sont les vraies mesures de cette page, prises par votre navigateur. Échap pour refermer.</p>";
-    document.body.appendChild(panneau);
-}
-
-function basculerCapot(force) {
-    var actif = typeof force === "boolean" ? force : !html.classList.contains("capot");
-    html.classList.toggle("capot", actif);
-    try { sessionStorage.setItem("capot", actif ? "1" : "0"); } catch (e) {}
-
-    document.querySelectorAll("[data-capot-toggle]").forEach(function (b) {
-        b.setAttribute("aria-pressed", actif);
-    });
-    if (actif) {
-        etiqueter();
-        remplirPanneau();
-    }
 }
 
 /* ---------- Menu mobile ---------- */
@@ -222,30 +124,16 @@ document.addEventListener("DOMContentLoaded", function () {
         a.addEventListener("click", fermerMenu);
     });
 
-    // mode capot
-    creerPanneau();
-    document.addEventListener("click", function (e) {
-        if (e.target.closest("[data-capot-toggle]")) basculerCapot();
-    });
-    if (html.classList.contains("capot")) basculerCapot(true);
-
+    // le menu se ferme si on agrandit la fenêtre, ou avec Échap
     var attente;
     window.addEventListener("resize", function () {
         clearTimeout(attente);
         attente = setTimeout(function () {
             if (window.innerWidth > 860) fermerMenu();
-            if (html.classList.contains("capot")) { etiqueter(); remplirPanneau(); }
         }, 150);
     });
-    window.addEventListener("load", function () {
-        if (html.classList.contains("capot")) { etiqueter(); remplirPanneau(); }
-    });
-
-    // Échap : ferme le menu, puis le capot
     document.addEventListener("keydown", function (e) {
-        if (e.key !== "Escape" || document.querySelector("dialog[open]")) return;
-        if (html.classList.contains("menu-ouvert")) fermerMenu();
-        else if (html.classList.contains("capot")) basculerCapot(false);
+        if (e.key === "Escape" && !document.querySelector("dialog[open]")) fermerMenu();
     });
 
     // copier l'adresse mail

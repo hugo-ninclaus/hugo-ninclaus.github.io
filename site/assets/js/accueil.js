@@ -259,7 +259,7 @@
             var tags = p.stack.map(function (t) { return "<li>" + t + "</li>"; }).join("");
             var statut = p.statut ? ' <span class="pastille">' + p.statut + "</span>" : "";
 
-            return '<article class="carte reveal' + (p.large ? " large" : "") + '" data-capot style="--i:' + (i % 2) + '">' +
+            return '<article class="carte reveal' + (p.large ? " large" : "") + '" style="--i:' + (i % 2) + '">' +
                 couvertureComplete(p) +
                 '<div class="carte-texte">' +
                     '<p class="carte-meta"><b>' + numero(i) + "</b>" + p.categorie + "<span>" + p.annee + "</span></p>" +

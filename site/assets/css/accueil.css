@@ -311,7 +311,7 @@
     color: var(--text);
 }
 
-/* tout la carte est cliquable (le bouton du capot passe au-dessus) */
+/* tout la carte est cliquable (le bouton « Sous le capot » passe au-dessus) */
 .carte h3 a::after {
     content: "";
     position: absolute;
@@ -476,13 +476,6 @@
 .carte-id dd {
     margin: 0;
     font-size: 0.95rem;
-}
-
-html.capot .carte-id {
-    color: var(--text);
-    background: transparent;
-    box-shadow: inset 0 0 0 1px var(--line-2);
-    transform: none;
 }
 
 /* centres d'intérêt */
@@ -681,10 +674,6 @@ html.capot .carte-id {
 
 .tuile.accent {
     background: linear-gradient(160deg, #0a3a6b, #0b1a2e 70%);
-}
-
-html.capot .tuile.accent {
-    background: var(--tile);
 }
 
 .tuile-label {

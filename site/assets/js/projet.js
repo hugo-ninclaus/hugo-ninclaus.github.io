@@ -74,7 +74,7 @@
         }).join("");
 
         galerie =
-            '<section class="galerie reveal" data-capot aria-label="Images du projet">' +
+            '<section class="galerie reveal" aria-label="Images du projet">' +
                 '<div class="galerie-piste">' + diapos + "</div>" +
                 (images.length > 1
                     ? '<div class="galerie-commandes">' +
@@ -105,17 +105,17 @@
         '<div class="contenu">' +
             '<a class="retour" href="index.html#projets"><span>‹</span> Tous les projets</a>' +
 
-            '<header class="projet-tete" data-capot>' +
+            '<header class="projet-tete">' +
                 '<p class="label reveal"><b>' + numero + "</b>" + p.categorie + (p.statut ? '<span class="pastille">' + p.statut + "</span>" : "") + "</p>" +
                 '<h1 class="reveal">' + p.titre + '<br><span class="dim">' + p.accroche + "</span></h1>" +
                 '<p class="intro reveal">' + p.resume + "</p>" +
             "</header>" +
 
-            '<div class="projet-couverture reveal" data-capot>' + couvertureComplete(p) + "</div>" +
+            '<div class="projet-couverture reveal">' + couvertureComplete(p) + "</div>" +
 
             fiche +
 
-            '<div class="recit" data-capot>' +
+            '<div class="recit">' +
                 partie("Contexte", p.contexte) +
                 partie("Ce que j'ai fait", p.realisation) +
                 partie("Ce que j'en ai tiré", p.bilan) +
