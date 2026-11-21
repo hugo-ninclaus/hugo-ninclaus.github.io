@@ -97,16 +97,6 @@ function copier(texte) {
     });
 }
 
-/* ---------- Pied de page ---------- */
-
-function heureParis() {
-    return new Date().toLocaleTimeString("fr-FR", {
-        hour: "2-digit",
-        minute: "2-digit",
-        timeZone: "Europe/Paris"
-    });
-}
-
 /* ---------- Au chargement ---------- */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -154,13 +144,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // année et heure
+    // année du pied de page
     document.querySelectorAll("[data-annee]").forEach(function (el) {
         el.textContent = new Date().getFullYear();
     });
-    var heure = document.querySelector("[data-heure]");
-    if (heure) {
-        heure.textContent = heureParis();
-        setInterval(function () { heure.textContent = heureParis(); }, 30000);
-    }
 });

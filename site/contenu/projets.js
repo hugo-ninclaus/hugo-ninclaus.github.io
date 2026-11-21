@@ -29,9 +29,9 @@
                       (voir assets/js/couvertures.js)
                     - ou une image : { image: "assets/img/projets/x.jpg" }
 
-     capot        optionnel : ce qu'on voit "sous le capot" au survol
-                    { fichier: "nom affiché", langage: "html" | "sh" | "texte" | "js" | "c" | "py",
-                      code: `...` }
+     apercu       optionnel : adresse d'un site en ligne, affiché en direct
+                  dans une fenêtre de navigateur en haut de la page projet
+                  (à la place de la couverture)
 
      liens        optionnel : [{ texte: "...", url: "..." }]
      images       optionnel : [{ src: "...", legende: "..." }] (galerie de la page projet)
@@ -53,23 +53,9 @@ const PROJETS = [
         resume: "Un parking intelligent en maquette : des LED guident jusqu'à la place libre la plus proche, une caméra reconnaît les plaques et un écran affiche les places disponibles en temps réel.",
         stack: ["Arduino", "Circuits", "Modélisation 3D", "HTML", "CSS", "JavaScript"],
         large: true,
-        couverture: "parking",
-        capot: {
-            fichier: "montages.txt",
-            langage: "texte",
-            code: `# Montage 1 : détection des places
-Arduino UNO
-4 × capteur à ultrasons HC-SR04
-1 × écran LCD 16×2 (I2C)
-→ affiche « Places restantes : 3/4 »
-
-# Montage 2 : guidage
-1 × registre à décalage 74HC595
-8 × LED + résistances
-→ chemin vers la place libre la plus proche
-  (algorithme glouton)`
-        },
+        couverture: { image: "assets/img/projets/fil-rouge-maquette.jpg", alt: "La maquette terminée du parking NEO PARK, avec ses quatre places et ses voitures miniatures." },
         images: [
+            { src: "assets/img/projets/fil-rouge-impression.jpg", legende: "En cours de construction : les modules du parking imprimés en 3D, avant le montage de l'électronique." },
             { src: "assets/img/projets/fil-rouge-capteurs.png", legende: "Capteurs et écran LCD : un capteur détecte une voiture, l'écran affiche « Places restantes : 3/4 »." },
             { src: "assets/img/projets/fil-rouge-led.png", legende: "Guidage par LED : le chemin s'allume jusqu'à la place la plus proche." }
         ],
@@ -92,21 +78,7 @@ Arduino UNO
         resume: "Le site de Monster Energy repensé de zéro en HTML et CSS : plus simple à parcourir, avec les athlètes sponsorisés mis en avant.",
         stack: ["HTML", "CSS"],
         couverture: { image: "assets/img/projets/monster.jpg" },
-        capot: {
-            fichier: "index.html",
-            langage: "html",
-            code: `<header>
-    <a href="index.html"><img src="photo/Logo_Monster_Energy.webp" alt="" /></a>
-    <div class="menu">
-        <a href="index.html" class="active">Accueil</a>
-        <a href="news.html">News</a>
-        <a href="boisson.html">Boissons</a>
-        <a href="athlete.html">Athletes</a>
-        <a href="evenement.html">Evenement</a>
-    </div>
-    <a class="primary-btn" href="connexion.html">Connexion</a>
-</header>`
-        },
+        apercu: "https://hugo-ninclaus.github.io/Projet_html/",
         liens: [
             { texte: "Voir le site", url: "https://hugo-ninclaus.github.io/Projet_html/" },
             { texte: "Code source", url: "https://github.com/hugo-ninclaus/Projet_html" },
@@ -126,16 +98,6 @@ Arduino UNO
         resume: "Un ordinateur de bureau transformé en serveur Nginx, avec une IP fixe, administré à distance en SSH et SCP.",
         stack: ["Ubuntu Server", "Nginx", "Réseaux", "SSH", "SCP"],
         couverture: "serveur",
-        capot: {
-            fichier: "terminal",
-            langage: "sh",
-            code: `$ ssh hugo@miniserveur
-hugo@miniserveur:~$ sudo nginx -t
-nginx: configuration file /etc/nginx/nginx.conf test is successful
-hugo@miniserveur:~$ sudo systemctl reload nginx
-hugo@miniserveur:~$ exit
-$ scp -r site/ hugo@miniserveur:~/www/`
-        },
         contexte: "Je voulais héberger mes sites sans payer d'hébergeur. Un ordinateur de bureau qui ne servait plus, c'était l'occasion : une alternative gratuite, et surtout un bon moyen d'apprendre.",
         realisation: [
             "J'ai installé Ubuntu Server sur la machine et je lui ai attribué une IP fixe sur ma box internet, pour qu'elle garde toujours la même adresse.",

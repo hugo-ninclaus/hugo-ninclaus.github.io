@@ -1,4 +1,0 @@
-# L'image n'a besoin que du site et de la config nginx
-*
-!site/
-!docker/

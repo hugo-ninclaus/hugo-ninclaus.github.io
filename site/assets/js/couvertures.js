@@ -130,3 +130,10 @@ function carrosserie(p) {
     }
     return '<div class="cv-vide">' + p.titre + "</div>";
 }
+
+/* Couverture complète d'un projet : le cadre + le dessin ou l'image. */
+function couverture(p) {
+    return '<div class="couverture">' +
+        '<div class="carrosserie">' + carrosserie(p) + "</div>" +
+    "</div>";
+}

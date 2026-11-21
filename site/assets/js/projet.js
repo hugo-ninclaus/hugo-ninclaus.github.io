@@ -23,8 +23,6 @@
     }
 
     var p = PROJETS[index];
-    var precedent = PROJETS[(index - 1 + PROJETS.length) % PROJETS.length];
-    var suivant = PROJETS[(index + 1) % PROJETS.length];
     var numero = (index + 1 < 10 ? "0" : "") + (index + 1);
 
     /* ---------- Petits outils ---------- */
@@ -53,6 +51,30 @@
             '<div class="fiche-stack"><dt>Stack</dt><dd><ul class="tags">' + tags + "</ul></dd></div>" +
             (liens ? "<div><dt>Liens</dt><dd>" + liens + "</dd></div>" : "") +
         "</dl>";
+
+    /* ---------- Haut de page : site en direct ou couverture ---------- */
+
+    // le site est affiché comme sur un écran d'ordinateur (largeur en px), puis réduit à la taille du cadre
+    function largeurEcran(cadre) {
+        return cadre < 600 ? 1024 : 1440;
+    }
+
+    function navigateur(url) {
+        var adresse = url.replace(/^https?:\/\//, "").replace(/\/$/, "");
+        return '<figure class="navigateur">' +
+            '<div class="navigateur-barre">' +
+                '<span class="feux" aria-hidden="true"><i></i><i></i><i></i></span>' +
+                '<span class="adresse">' + adresse + "</span>" +
+                '<a class="ouvrir" href="' + url + '" target="_blank" rel="noopener">Ouvrir <span>↗</span></a>' +
+            "</div>" +
+            '<div class="navigateur-ecran">' +
+                '<iframe src="' + url + '" title="' + p.titre + ', le site en ligne" loading="lazy"></iframe>' +
+            "</div>" +
+            '<figcaption><span class="direct"></span>En direct : le site se parcourt ici même.</figcaption>' +
+        "</figure>";
+    }
+
+    var haut = p.apercu ? navigateur(p.apercu) : couverture(p);
 
     /* ---------- Galerie ---------- */
 
@@ -86,15 +108,6 @@
             "</section>";
     }
 
-    /* ---------- Navigation entre projets ---------- */
-
-    var navigation = PROJETS.length > 1
-        ? '<nav class="nav-projets" aria-label="Autres projets">' +
-              '<a class="prec" href="projet.html?p=' + precedent.id + '"><small>‹ Projet précédent</small><strong>' + precedent.titre + "</strong></a>" +
-              '<a class="suiv" href="projet.html?p=' + suivant.id + '"><small>Projet suivant ›</small><strong>' + suivant.titre + "</strong></a>" +
-          "</nav>"
-        : "";
-
     /* ---------- Assemblage ---------- */
 
     document.title = p.titre + " · Hugo Ninclaus";
@@ -111,7 +124,7 @@
                 '<p class="intro reveal">' + p.resume + "</p>" +
             "</header>" +
 
-            '<div class="projet-couverture reveal">' + couvertureComplete(p) + "</div>" +
+            '<div class="projet-couverture reveal">' + haut + "</div>" +
 
             fiche +
 
@@ -122,8 +135,25 @@
             "</div>" +
 
             galerie +
-            navigation +
         "</div>";
+
+    /* ---------- Site en direct : mise à l'échelle ---------- */
+
+    var ecran = zone.querySelector(".navigateur-ecran");
+
+    if (ecran) {
+        var cadre = ecran.querySelector("iframe");
+        var ajuster = function () {
+            var largeur = largeurEcran(ecran.clientWidth);
+            var echelle = ecran.clientWidth / largeur;
+            cadre.style.width = largeur + "px";
+            cadre.style.transform = "scale(" + echelle + ")";
+            cadre.style.height = ecran.clientHeight / echelle + "px";
+        };
+        ajuster();
+        if ("ResizeObserver" in window) new ResizeObserver(ajuster).observe(ecran);
+        else window.addEventListener("resize", ajuster);
+    }
 
     /* ---------- Galerie : défilement, points, flèches ---------- */
 

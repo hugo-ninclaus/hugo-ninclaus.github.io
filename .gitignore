@@ -4,10 +4,8 @@ Thumbs.db
 .env
 node_modules/
 
-# réglages VS Code perso (les recommandations d'extensions restent partagées)
-.vscode/*
-!.vscode/extensions.json
-!.vscode/settings.json
+# réglages VS Code perso
+.vscode/
 
 # réglages locaux de Claude Code
 .claude/

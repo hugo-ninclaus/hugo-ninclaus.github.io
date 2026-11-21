@@ -59,188 +59,6 @@
     color: var(--grey);
 }
 
-/* ---------- Vitrine : carrousel des projets ----------
-   Ordinateur : cartes en éventail (le projet actif au centre).
-   Tablette et téléphone : pile de cartes qu'on fait glisser, façon Tinder.
-   Le geste, les flèches et la lecture automatique sont dans accueil.js,
-   qui donne à chaque carte :
-     --pos    -1, 0, 1 : place dans l'éventail (0 = au centre)
-     --ecart  distance au centre (0 ou 1)
-     --rang   0, 1, 2 : place dans la pile (0 = dessus)
-   Au défilement, --p (0 → 1) redresse le carrousel. */
-
-.vitrine-scene {
-    max-width: 1180px;
-    margin: 88px auto 0;
-    padding: 0 var(--marge);
-    perspective: 1600px;
-}
-
-.vitrine {
-    --p: 0;
-    display: grid;
-    justify-items: center;
-    perspective: 1400px;
-    transform-origin: 50% 0%;
-    transform:
-        rotateX(calc((1 - var(--p)) * 20deg))
-        scale(calc(0.92 + var(--p) * 0.08));
-    touch-action: pan-y;               /* le défilement vertical de la page reste possible */
-    outline-offset: 12px;
-}
-
-.vitrine .couverture {
-    grid-area: 1 / 1;
-    width: min(54%, 600px);
-    border-radius: 20px;
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.55), inset 0 0 0 1px var(--line);
-    z-index: calc(10 - var(--ecart, 0));
-    transform:
-        translateX(calc(var(--pos, 0) * 62%))
-        scale(calc(1 - var(--ecart, 0) * 0.17))
-        rotateY(calc(var(--pos, 0) * -24deg));
-    filter: brightness(calc(1 - var(--ecart, 0) * 0.45));
-    transition: transform 0.8s var(--ease), filter 0.8s;
-    cursor: pointer;
-    user-select: none;
-    -webkit-user-select: none;
-    -webkit-user-drag: none;
-}
-
-.vitrine .couverture.actif {
-    cursor: grab;
-}
-
-.vitrine .couverture.actif:active {
-    cursor: grabbing;
-}
-
-.vitrine .carrosserie {
-    transition: filter 0.4s;
-}
-
-.vitrine .couverture.actif:hover .carrosserie {
-    filter: brightness(1.12);
-}
-
-/* légende : titre, flèches et points */
-.vitrine-legende {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-    margin-top: 34px;
-}
-
-.vitrine-legende p {
-    margin: 0;
-}
-
-.pile-titre {
-    font-size: 1.05rem;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    color: var(--text);
-}
-
-.pile-titre span {
-    font-weight: 400;
-    color: var(--grey);
-}
-
-.pile-commandes {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-}
-
-.pile-fleche {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    font-size: 1.25rem;
-    line-height: 1;
-    color: var(--text);
-    background: var(--tile-2);
-    transition: background 0.2s;
-}
-
-.pile-fleche:hover {
-    background: var(--line);
-}
-
-.pile-points {
-    display: flex;
-    align-items: center;
-    gap: 2px;
-}
-
-.pile-points button {
-    padding: 8px 3px;          /* zone de clic plus grande que le point */
-}
-
-.pile-points i {
-    position: relative;
-    display: block;
-    width: 8px;
-    height: 8px;
-    overflow: hidden;
-    border-radius: 4px;
-    background: var(--line-2);
-    transition: width 0.4s var(--ease), background 0.3s;
-}
-
-.pile-points .actif i {
-    width: 32px;
-    background: var(--grey);
-}
-
-/* la barre qui se remplit pendant la lecture automatique */
-.pile-points i::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: var(--text);
-    transform: scaleX(0);
-    transform-origin: left;
-}
-
-.vitrine-legende.lecture .pile-points .actif i::after {
-    animation: pile-progression var(--duree, 4.5s) linear forwards;
-}
-
-.vitrine-legende:not(.lecture) .pile-points .actif i {
-    background: var(--text);
-}
-
-@keyframes pile-progression {
-    to { transform: scaleX(1); }
-}
-
-@media (max-width: 860px) {
-    .vitrine-scene {
-        max-width: 460px;
-        perspective: none;
-    }
-
-    .vitrine {
-        padding-top: 34px;
-        perspective: none;
-        transform: none;
-    }
-
-    .vitrine .couverture {
-        width: 100%;
-        border-radius: 18px;
-        z-index: calc(10 - var(--rang, 0));
-        transform-origin: 50% 0%;
-        transform:
-            translateY(calc(var(--rang, 0) * -17px))
-            scale(calc(1 - var(--rang, 0) * 0.07));
-        filter: brightness(calc(1 - var(--rang, 0) * 0.35));
-    }
-}
-
 /* ---------- Projets ---------- */
 
 .intro-section {
@@ -311,7 +129,7 @@
     color: var(--text);
 }
 
-/* tout la carte est cliquable (le bouton « Sous le capot » passe au-dessus) */
+/* toute la carte est cliquable */
 .carte h3 a::after {
     content: "";
     position: absolute;
@@ -816,41 +634,6 @@
     background-size: 100% 3px;
 }
 
-.contact-infos {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    max-width: 960px;
-    margin: 88px auto 0;
-    padding: 30px 0 0;
-    border-top: 1px solid var(--line);
-    text-align: left;
-}
-
-.contact-infos dt {
-    margin-bottom: 8px;
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--dim);
-}
-
-.contact-infos dd {
-    margin: 0;
-    font-size: 1rem;
-    color: var(--text-2);
-}
-
-.contact-infos a {
-    color: var(--text-2);
-    transition: color 0.2s;
-}
-
-.contact-infos a:hover {
-    color: var(--accent);
-}
-
 /* ---------- Responsive ---------- */
 
 @media (max-width: 960px) {
@@ -863,9 +646,6 @@
     }
     .interets {
         grid-template-columns: repeat(3, 1fr);
-    }
-    .contact-infos {
-        grid-template-columns: 1fr 1fr;
     }
 }
 
@@ -895,9 +675,6 @@
 @media (max-width: 600px) {
     .hero {
         padding-top: 64px;
-    }
-    .vitrine-scene {
-        margin-top: 64px;
     }
     .bento {
         grid-template-columns: 1fr;
@@ -934,9 +711,5 @@
     }
     .etape {
         padding-left: 0;
-    }
-    .contact-infos {
-        grid-template-columns: 1fr;
-        margin-top: 64px;
     }
 }
