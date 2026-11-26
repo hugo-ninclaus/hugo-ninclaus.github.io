@@ -55,6 +55,9 @@ const PROJETS = [
         stack: ["Arduino", "MQTT", "Python", "Flask", "SQLite", "TLS"],
         large: true,
         couverture: "maison",
+        images: [
+            { src: "assets/img/projets/smarthouse-mobile.jpg", legende: "Le tableau de bord sur téléphone : température, humidité, qualité de l'air et pression, avec leur courbe sur 24 h." }
+        ],
         contexte: "Projet de domotique de 2e année : concevoir une maison connectée de bout en bout, du capteur jusqu'à l'interface de suivi, en pensant la sécurité dès le départ.",
         realisation: [
             "Côté maison, un Arduino UNO R4 WiFi relève la température, l'humidité, la pression et la qualité de l'air (capteur BME680), détecte les présences par ultrasons et prend des photos avec une caméra. Il pilote aussi une LED et un buzzer.",
