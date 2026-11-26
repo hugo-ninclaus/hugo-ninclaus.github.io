@@ -141,20 +141,18 @@ var COUVERTURES = {
             '<circle class="cv-paquet cv-va" cx="330" cy="250" r="4"/>' +
             '<rect class="cv-boite" x="382" y="222" width="84" height="56" rx="12"/>' +
             '<text class="cv-txt-petit" x="424" y="255" text-anchor="middle">mqtt</text>' +
-            '<path class="cv-cable" d="M466 250 H518"/>' +
+            '<path class="cv-cable" d="M466 250 H496"/>' +
             '<circle class="cv-paquet cv-va" cx="466" cy="250" r="4" style="animation-delay:1.2s"/>' +
 
-            // le site de suivi, sur un téléphone
-            '<rect class="cv-boitier" x="518" y="120" width="96" height="220" rx="16"/>' +
-            '<rect class="cv-facade" x="528" y="136" width="76" height="188" rx="8"/>' +
-            '<text class="cv-txt-petit" x="566" y="162" text-anchor="middle">21,4 °C</text>' +
-            '<path class="cv-repere" d="M536 250 L552 232 L566 240 L580 214 L596 222"/>' +
-            '<rect class="cv-baie" x="538" y="276" width="56" height="12" rx="4"/>' +
-            '<rect class="cv-baie" x="538" y="296" width="40" height="12" rx="4"/>' +
+            // le site de suivi, sur un téléphone : une vraie capture du tableau de bord
+            '<defs><clipPath id="cv-ecran-maison"><rect x="504" y="96" width="116" height="206" rx="10"/></clipPath></defs>' +
+            '<rect class="cv-boitier" x="496" y="88" width="132" height="232" rx="20"/>' +
+            '<rect class="cv-facade" x="504" y="96" width="116" height="206" rx="10"/>' +
+            '<image href="assets/img/projets/smarthouse-mobile.jpg" x="504" y="96" width="116" height="206" preserveAspectRatio="xMidYMid slice" clip-path="url(#cv-ecran-maison)"/>' +
 
             // annotations
             '<text class="cv-annot" x="368" y="208">wi-fi · tls</text>' +
-            '<text class="cv-annot" x="520" y="368">flask</text>' +
+            '<text class="cv-annot" x="562" y="350" text-anchor="middle">site flask</text>' +
             '<text class="cv-annot" x="58" y="382">capteurs · caméra · led · buzzer</text>' +
         "</svg>";
     }
