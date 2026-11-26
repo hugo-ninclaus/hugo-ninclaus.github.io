@@ -44,8 +44,28 @@
 const PROJETS = [
 
     {
+        id: "smarthouse",
+        titre: "SmartHouse",
+        accroche: "Une maison connectée, suivie depuis un téléphone.",
+        categorie: "IoT & web",
+        annee: "2026 – 2027",
+        cadre: "Projet scolaire · en équipe",
+        statut: "En cours",
+        resume: "Une maison connectée sur Arduino : capteurs, caméra, LED et buzzer envoient leurs données en MQTT vers un site de suivi en Python Flask, utilisable sur ordinateur comme sur téléphone.",
+        stack: ["Arduino", "MQTT", "Python", "Flask", "SQLite", "TLS"],
+        large: true,
+        couverture: "maison",
+        contexte: "Projet de domotique de 2e année : concevoir une maison connectée de bout en bout, du capteur jusqu'à l'interface de suivi, en pensant la sécurité dès le départ.",
+        realisation: [
+            "Côté maison, un Arduino UNO R4 WiFi relève la température, l'humidité, la pression et la qualité de l'air (capteur BME680), détecte les présences par ultrasons et prend des photos avec une caméra. Il pilote aussi une LED et un buzzer.",
+            "Les mesures partent en MQTT, chiffrées en TLS, vers un broker Mosquitto. Un pont en Python les enregistre en base de données, et le site Flask les affiche : tableau de bord, graphiques, alertes, gestion des pièces et des membres de la famille. Le site renvoie aussi des ordres à la maison (allumer la LED, déclencher le buzzer)."
+        ],
+        bilan: "Le projet où tout se relie : électronique, réseau, base de données et web. J'y ai découvert le protocole MQTT et ce que demande la sécurisation d'objets connectés, du chiffrement des échanges à la gestion des comptes."
+    },
+
+    {
         id: "fil-rouge",
-        titre: "Projet fil rouge",
+        titre: "NEO PARK",
         accroche: "Un parking qui guide ses usagers.",
         categorie: "Électronique & web",
         annee: "2025 – 2026",

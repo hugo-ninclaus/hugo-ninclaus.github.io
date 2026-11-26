@@ -115,6 +115,48 @@ var COUVERTURES = {
             '<text class="cv-annot" x="456" y="172">ssh · port 22</text>' +
             '<text class="cv-annot" x="456" y="246">nginx · port 80</text>' +
         "</svg>";
+    },
+
+    /* ---------- SmartHouse : la maison, le broker MQTT et le site ---------- */
+
+    maison: function () {
+        return '<svg class="cv cv-maison" viewBox="0 0 640 400" role="img" aria-label="Une maison connectée envoie ses mesures en MQTT vers un site de suivi">' +
+            '<ellipse class="cv-ombre" cx="190" cy="352" rx="150" ry="10"/>' +
+
+            // la maison
+            '<path class="cv-sol" d="M50 170 L190 70 L330 170 V340 H50 Z"/>' +
+            '<rect class="cv-boite" x="78" y="196" width="104" height="54" rx="10"/>' +
+            '<text class="cv-txt-petit" x="130" y="228" text-anchor="middle">BME680</text>' +
+            '<rect class="cv-boite" x="204" y="196" width="98" height="54" rx="10"/>' +
+            '<circle class="cv-boite" cx="253" cy="223" r="14"/>' +
+            '<circle class="cv-paquet" cx="253" cy="223" r="4"/>' +
+            '<rect class="cv-boite" x="78" y="272" width="224" height="44" rx="10"/>' +
+            '<text class="cv-txt-petit" x="100" y="299">arduino</text>' +
+            '<circle class="cv-led-alim" cx="250" cy="294" r="4"/>' +
+            '<circle class="cv-led-act" cx="268" cy="294" r="4"/>' +
+            '<circle class="cv-led-eteinte" cx="286" cy="294" r="4"/>' +
+
+            // maison -> broker -> site
+            '<path class="cv-cable" d="M330 250 H382"/>' +
+            '<circle class="cv-paquet cv-va" cx="330" cy="250" r="4"/>' +
+            '<rect class="cv-boite" x="382" y="222" width="84" height="56" rx="12"/>' +
+            '<text class="cv-txt-petit" x="424" y="255" text-anchor="middle">mqtt</text>' +
+            '<path class="cv-cable" d="M466 250 H518"/>' +
+            '<circle class="cv-paquet cv-va" cx="466" cy="250" r="4" style="animation-delay:1.2s"/>' +
+
+            // le site de suivi, sur un téléphone
+            '<rect class="cv-boitier" x="518" y="120" width="96" height="220" rx="16"/>' +
+            '<rect class="cv-facade" x="528" y="136" width="76" height="188" rx="8"/>' +
+            '<text class="cv-txt-petit" x="566" y="162" text-anchor="middle">21,4 °C</text>' +
+            '<path class="cv-repere" d="M536 250 L552 232 L566 240 L580 214 L596 222"/>' +
+            '<rect class="cv-baie" x="538" y="276" width="56" height="12" rx="4"/>' +
+            '<rect class="cv-baie" x="538" y="296" width="40" height="12" rx="4"/>' +
+
+            // annotations
+            '<text class="cv-annot" x="368" y="208">wi-fi · tls</text>' +
+            '<text class="cv-annot" x="520" y="368">flask</text>' +
+            '<text class="cv-annot" x="58" y="382">capteurs · caméra · led · buzzer</text>' +
+        "</svg>";
     }
 };
 
